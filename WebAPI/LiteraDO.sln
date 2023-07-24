@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteraDO", "LiteraDO\LiteraDO.csproj", "{BDA469BC-5495-4535-8D79-18E48DF8CA1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteraDO.Domain", "LiteraDO.Domain\LiteraDO.Domain.csproj", "{7FA17D26-E585-47A3-9BA3-AEAF70C42279}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteraDO.DataAccess", "LiteraDO.DataAccess\LiteraDO.DataAccess.csproj", "{FE5DB9FA-B3D4-4A44-BEED-248A4BEDA26A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteraDO.Common", "LiteraDO.Common\LiteraDO.Common.csproj", "{6C62ECAD-5606-4819-8CD5-CC874FC599F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteraDO.BusinessLogic.Tests", "LiteraDO.BusinessLogic.Tests\LiteraDO.BusinessLogic.Tests.csproj", "{D8855EBB-9B98-48E5-A27F-FD8E67B2F83F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteraDO.BusinessLogic", "LiteraDO.BusinessLogic\LiteraDO.BusinessLogic.csproj", "{409B1AC8-14BE-46CA-82E4-F424878F4C9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{00CE9D1B-5E4F-4231-AF82-9550BD4F2108}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDA469BC-5495-4535-8D79-18E48DF8CA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA469BC-5495-4535-8D79-18E48DF8CA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA469BC-5495-4535-8D79-18E48DF8CA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA469BC-5495-4535-8D79-18E48DF8CA1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA17D26-E585-47A3-9BA3-AEAF70C42279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA17D26-E585-47A3-9BA3-AEAF70C42279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA17D26-E585-47A3-9BA3-AEAF70C42279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA17D26-E585-47A3-9BA3-AEAF70C42279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE5DB9FA-B3D4-4A44-BEED-248A4BEDA26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE5DB9FA-B3D4-4A44-BEED-248A4BEDA26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE5DB9FA-B3D4-4A44-BEED-248A4BEDA26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE5DB9FA-B3D4-4A44-BEED-248A4BEDA26A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C62ECAD-5606-4819-8CD5-CC874FC599F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C62ECAD-5606-4819-8CD5-CC874FC599F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C62ECAD-5606-4819-8CD5-CC874FC599F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C62ECAD-5606-4819-8CD5-CC874FC599F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8855EBB-9B98-48E5-A27F-FD8E67B2F83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8855EBB-9B98-48E5-A27F-FD8E67B2F83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8855EBB-9B98-48E5-A27F-FD8E67B2F83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8855EBB-9B98-48E5-A27F-FD8E67B2F83F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409B1AC8-14BE-46CA-82E4-F424878F4C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409B1AC8-14BE-46CA-82E4-F424878F4C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409B1AC8-14BE-46CA-82E4-F424878F4C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409B1AC8-14BE-46CA-82E4-F424878F4C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8855EBB-9B98-48E5-A27F-FD8E67B2F83F} = {00CE9D1B-5E4F-4231-AF82-9550BD4F2108}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8B386FF-0C87-4C7B-B503-2360534ABE1F}
+	EndGlobalSection
+EndGlobal
