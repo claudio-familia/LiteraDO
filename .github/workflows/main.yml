@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-    - main
+    - master
 
 env:
   AZURE_WEBAPP_NAME: literado-api 
-  AZURE_WEBAPP_PACKAGE_PATH: ".WebAPI/publish"
+  AZURE_WEBAPP_PACKAGE_PATH: "./WebAPI/publish"
 
 jobs:
   publish:
@@ -23,13 +23,13 @@ jobs:
           dotnet-version: '6.0.x'
           
       - name: Restore
-        run: dotnet restore .WebAPI/LiteraDO.sln
+        run: dotnet restore ./WebAPI/LiteraDO.sln
         
       - name: Build
-        run: dotnet build .WebAPI/LiteraDO.sln --configuration Release --no-restore
+        run: dotnet build ./WebAPI/LiteraDO.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish .WebAPI/LiteraDO.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish ./WebAPI/LiteraDO.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
