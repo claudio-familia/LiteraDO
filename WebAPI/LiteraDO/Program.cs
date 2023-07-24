@@ -11,10 +11,10 @@ namespace LiteraDO
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            using (var scope = host.Services.CreateScope())
-            {
-                scope.ServiceProvider.GetRequiredService<LiteraDODBContext>().Database.Migrate();
-            }
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    scope.ServiceProvider.GetRequiredService<LiteraDODBContext>().Database.Migrate();
+            //}
             host.Run();
         }
 
