@@ -1,4 +1,4 @@
-name: Publish Web App to Azure 🌐
+name: Publish Angular WebApp to Azure 📚🌐
 
 on:
   push:
@@ -50,4 +50,4 @@ jobs:
           app-name: 'literado'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B6BCEAEC0E14592ABB941EBD856B656 }}
-          package: ./WebApp
+          package: .
