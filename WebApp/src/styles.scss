@@ -1,0 +1,85 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$litera-do-primary: mat.define-palette(mat.$indigo-palette);
+$litera-do-accent: mat.define-palette(mat.$cyan-palette);
+
+// The warn palette is optional (defaults to red).
+$litera-do-warn: mat.define-palette(mat.$red-palette);
+
+// Light theme colors
+$litera-do-light-theme: mat.define-light-theme((
+  color: (
+    primary: $litera-do-primary,
+    accent: $litera-do-accent,
+    warn: $litera-do-warn,
+  )
+));
+
+// Dark theme colors
+$litera-do-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $litera-do-primary,
+    accent: $litera-do-accent,
+    warn: $litera-do-warn,
+  )
+));
+
+@include mat.all-component-themes($litera-do-light-theme);
+
+.dark-theme {
+  @include mat.all-component-colors($litera-do-dark-theme);
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/grid-system.scss";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main-menu {
+  transform: translate(100%, -20%) !important;
+}
+
+.profile-menu {
+  transform: translateY(5%) !important;
+}
+
+.main-row {
+  display: flex;
+  flex-direction: row;
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+  
+

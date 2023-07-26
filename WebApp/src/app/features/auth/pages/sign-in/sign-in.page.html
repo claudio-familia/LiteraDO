@@ -1,0 +1,123 @@
+<div class="literado__login">
+  <div class="design">
+      <div class="pill-1 rotate-45"></div>
+      <div class="pill-2 rotate-45"></div>
+      <div class="pill-3 rotate-45"></div>
+      <div class="pill-4 rotate-45"></div>
+  </div>
+  <div class="login">
+    <form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
+        <h2 class="title">litera-do</h2>
+        <h3 class="title">Nuevo usuario</h3>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>account_circle</mat-icon>
+              <input matInput placeholder="Usuario" formControlName="username">
+              <mat-error *ngIf="getControl('username').hasError('required')">
+                El usuario es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>lock</mat-icon>
+              <input matInput type="password" placeholder="Contraseña" formControlName="password">
+              <mat-error *ngIf="getControl('password').hasError('required')">
+                La contraseña es requerida.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>lock</mat-icon>
+              <input matInput type="password" placeholder="Confirma la contraseña" formControlName="confirmPassword">
+              <mat-error *ngIf="getControl('confirmPassword').hasError('required')">
+                La confirmacíon de la contraseña es requerida.
+              </mat-error>
+              <mat-error *ngIf="passwordMustConfirm()">
+                Las contraseñas no coinciden.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>info</mat-icon>
+              <input matInput placeholder="Nombres" formControlName="firstName">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>info</mat-icon>
+              <input matInput placeholder="Apellidos" formControlName="lastName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>mail</mat-icon>
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="getControl('email').hasError('required')">
+                El correo electronico es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width" (click)="picker.open()">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" readonly formControlName="birthdate">
+                <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Gender</mat-label>
+              <mat-select placeholder="Genero" formControlName="gender">
+                <mat-option value="female">Mujer</mat-option>
+                <mat-option value="male">Hombre</mat-option>
+                <mat-option value="other">Otros</mat-option>
+              </mat-select>
+              <mat-error *ngIf="getControl('gender').hasError('required')">
+                El genero es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Country</mat-label>
+              <mat-select placeholder="País" formControlName="countryId">
+                <mat-option *ngFor="let country of countries" [value]="country.id">{{country.name}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="getControl('countryId').hasError('required')">
+                El país es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <mat-form-field class="full-width">
+            <mat-label>Preferencia princial</mat-label>
+            <mat-select placeholder="Preferencia" formControlName="targetPreference">
+              <mat-option value="0">Lector</mat-option>
+              <mat-option value="1">Escritor</mat-option>
+              <mat-option value="2">Ambos</mat-option>
+            </mat-select>
+            <mat-error *ngIf="getControl('targetPreference').hasError('required')">
+              La preferencia es requerida.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+  

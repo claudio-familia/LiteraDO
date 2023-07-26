@@ -1,0 +1,15 @@
+<mat-toolbar>Menu</mat-toolbar>
+<mat-nav-list>
+  <a mat-list-item href="#" [matMenuTriggerFor]="argentina">Link 1</a>
+  <a mat-list-item href="#">Link 2</a>
+  <a mat-list-item href="#">Link 3</a>
+</mat-nav-list>
+
+
+<mat-menu class="main-menu" #argentina="matMenu" xPosition="before">
+    <button mat-menu-item>La Nación</button>
+    <button mat-menu-item>Clarin</button>
+    <button mat-menu-item>Ambito</button>
+    <button mat-menu-item>Infobae</button>
+    <button mat-menu-item>Cronista</button>
+</mat-menu>

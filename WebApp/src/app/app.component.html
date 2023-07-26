@@ -1,0 +1,23 @@
+<literado-loading *ngIf="isLoading"></literado-loading>
+
+<ng-container 
+  *ngIf="isAuthenticated"
+  [ngTemplateOutlet]="loggedPage">
+</ng-container>
+
+<ng-container 
+  *ngIf="!isAuthenticated"  
+  [ngTemplateOutlet]="blank">
+</ng-container>
+
+
+<ng-template 
+  #loggedPage>
+  <literado-navbar>
+    <router-outlet></router-outlet>
+  </literado-navbar>
+</ng-template>
+
+<ng-template #blank>
+  <router-outlet></router-outlet>
+</ng-template>
