@@ -23,16 +23,16 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release ./WebApi/
+        run: dotnet build ./WebApi --configuration Release 
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ./WebApi/${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -c Release -o ./WebAPI/${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ./WebApi/${{env.DOTNET_ROOT}}/myapp
+          path: ./WebAPI/${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
