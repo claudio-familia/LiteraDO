@@ -1,4 +1,4 @@
-name: Publish API to Azure 🚀
+name: Publish .NET API to Azure 🚀🌎
 
 on:
   workflow_dispatch:
