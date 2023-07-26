@@ -1,4 +1,4 @@
-name: Publish Web App to Azure 🚀
+name: Publish Web App to Azure 🌐
 
 on:
   push:
@@ -20,14 +20,15 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
+          npm install ./WebApp
+          npm run build --if-present ./WebApp
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: ./WebApp
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,4 +50,4 @@ jobs:
           app-name: 'literado'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B6BCEAEC0E14592ABB941EBD856B656 }}
-          package: .
+          package: ./WebApp
