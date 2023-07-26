@@ -9,7 +9,7 @@ namespace LiteraDO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [AllowAnonymous]
     public class UsersController : BaseController<User, UserDto>
     {
         public UsersController(IBaseService<User, UserDto> baseService) : base(baseService)

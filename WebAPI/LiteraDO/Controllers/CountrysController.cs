@@ -15,5 +15,11 @@ namespace LiteraDO.Controllers
         public CountriesController(IBaseService<Country, CountryDto> baseService) : base(baseService)
         {
         }
+
+        [AllowAnonymous]
+        public override IActionResult Get()
+        {
+            return base.Get();
+        }
     }
 }

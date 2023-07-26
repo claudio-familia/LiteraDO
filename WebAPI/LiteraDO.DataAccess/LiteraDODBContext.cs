@@ -46,6 +46,16 @@ namespace LiteraDO.DataAccess
 
         #endregion
 
+        #region Seed DATA
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+        }
+
+        #endregion
+
+
         // USERS
         public DbSet<User> Users { get; set; }
         public DbSet<Country> Countries { get; set; }
