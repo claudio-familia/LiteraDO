@@ -6,7 +6,7 @@ name: Publish .NET API to Azure 🚀🌎
 on:
   push:
     branches:
-      - master
+      - release-api
   workflow_dispatch:
 
 jobs:
