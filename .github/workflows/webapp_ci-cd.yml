@@ -30,4 +30,4 @@ jobs:
           app-name: 'literado'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B6BCEAEC0E14592ABB941EBD856B656 }}
-          package: .
+          package: ./WebApp/dist/litera-do/
