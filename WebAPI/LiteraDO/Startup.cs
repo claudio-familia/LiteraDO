@@ -15,6 +15,8 @@ namespace LiteraDO
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddCors(o => o.AddPolicy("EveryOne", builder =>
             {
                 builder.AllowAnyOrigin();
@@ -23,8 +25,6 @@ namespace LiteraDO
             }));
 
             services.AddSwaggerSettings();
-
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IMapper, Mapper>();
 
