@@ -20,8 +20,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install ./WebApp
-          npm run build --if-present ./WebApp
+          npm install 
+          npm run build --if-present 
+        working-directory: ./WebApp
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -29,6 +30,4 @@ jobs:
           app-name: 'literado'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B6BCEAEC0E14592ABB941EBD856B656 }}
-          package: ./WebApp/dist/litera-do
-
-
+          package: .
