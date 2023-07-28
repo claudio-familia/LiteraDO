@@ -6,15 +6,15 @@ using LiteraDO.Common.Models;
 
 namespace LiteraDO.BusinessLogic.Services.Contracts
 {
-    public interface IBaseService<T, Dto>
+    public interface IBaseService<T>
     {
-        T Add(Dto entity);
-        T Update(Dto entity);
-        IEnumerable<Dto> GetAll();
-        IEnumerable<Dto> GetAll(Func<IQueryable<T>, IQueryable<T>> transform, Expression<Func<T, bool>> filter = null);
-        Dto Get(int id);
+        T Add(T entity);
+        T Update(T entity);
+        IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(Func<IQueryable<T>, IQueryable<T>> transform, Expression<Func<T, bool>> filter = null);
+        T Get(int id);
         T GetEntity(int id);
-        Dto Get(Guid id);
+        T Get(Guid id);
         TResult Get<TResult>(Func<IQueryable<T>, IQueryable<TResult>> transform, Expression<Func<T, bool>> filter = null);
         bool Exists(int id);
         bool Exists(Expression<Func<T, bool>> filter = null);

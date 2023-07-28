@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,26 +8,20 @@ using LiteraDO.DataAccess.Repositories.Contracts;
 
 namespace LiteraDO.BusinessLogic.Services
 {
-    public class BaseService<T, Dto> : IBaseService<T, Dto>
+    public class BaseService<T> : IBaseService<T>
         where T : class, IAuditableEntity, new()
-        where Dto : class, new()
     {
         protected readonly IDataRepository<T> repository;
-        private readonly IMapper _mapper;
 
-        public BaseService(IDataRepository<T> _repository,
-                           IMapper mapper)
+        public BaseService(IDataRepository<T> _repository)
         {
             repository = _repository;
-            this._mapper = mapper;
         }
 
-        public virtual T Add(Dto newEntity)
+        public virtual T Add(T newEntity)
         {
             try
             {
-                var entity = _mapper.Map<T>(newEntity);
-
                 entity.IsDeleted = false;
 
                 return repository.Add(entity);
@@ -56,18 +49,14 @@ namespace LiteraDO.BusinessLogic.Services
             return repository.Exists(filter);
         }
 
-        public virtual Dto Get(int id)
+        public virtual T Get(int id)
         {
-            var result = repository.Get(id);
-
-            return _mapper.Map<Dto>(result);
+            return repository.Get(id);
         }
 
-        public virtual Dto Get(Guid id)
+        public virtual T Get(Guid id)
         {
-            var result = repository.Get(id);
-
-            return _mapper.Map<Dto>(result);
+            return repository.Get(id);
         }
 
         public virtual TResult Get<TResult>(Func<IQueryable<T>, IQueryable<TResult>> transform, Expression<Func<T, bool>> filter = null)
@@ -75,18 +64,14 @@ namespace LiteraDO.BusinessLogic.Services
             return repository.Get(transform, filter);
         }
 
-        public virtual IEnumerable<Dto> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
-            var result = repository.GetAll();
-
-            return _mapper.Map<IEnumerable<Dto>>(result);
+            return repository.GetAll();
         }
 
-        public virtual IEnumerable<Dto> GetAll(Func<IQueryable<T>, IQueryable<T>> transform, Expression<Func<T, bool>> filter = null)
+        public virtual IEnumerable<T> GetAll(Func<IQueryable<T>, IQueryable<T>> transform, Expression<Func<T, bool>> filter = null)
         {
-            var result = repository.GetAll(transform, filter);
-
-            return _mapper.Map<IEnumerable<Dto>>(result);
+            return repository.GetAll(transform, filter);
         }
 
         public T GetEntity(int id)
@@ -94,13 +79,11 @@ namespace LiteraDO.BusinessLogic.Services
             return repository.Get(id);
         }
 
-        public virtual T Update(Dto entity)
+        public virtual T Update(T entity)
         {
             try
             {
-                var entityToBeUpdated = _mapper.Map<T>(entity);
-
-                return repository.Update(entityToBeUpdated);
+                return repository.Update(entity);
             }
             catch (Exception ex)
             {

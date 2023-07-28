@@ -10,9 +10,9 @@ namespace LiteraDO.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class StoryCharactersController : BaseController<StoryCharacter, StoryCharacterDto>
+    public class StoryCharactersController : BaseController<StoryCharacter>
     {
-        public StoryCharactersController(IBaseService<StoryCharacter, StoryCharacterDto> baseService) : base(baseService)
+        public StoryCharactersController(IBaseService<StoryCharacter> baseService) : base(baseService)
         {
         }
     }

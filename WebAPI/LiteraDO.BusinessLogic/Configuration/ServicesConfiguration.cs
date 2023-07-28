@@ -18,10 +18,10 @@ namespace LiteraDO.DataAccess.Configuration
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ICryptographyService, CryptographyService>();
             services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<IBaseService<User, UserDto>, UserService>();            
+            services.AddScoped<IBaseService<User>, UserService>();            
 
-            services.AddScoped<IBaseService<Story, StoryDto>, StoryService>();
-            services.AddScoped<IBaseService<Country, CountryDto>, BaseService<Country, CountryDto>>();
+            services.AddScoped<IBaseService<Story>, StoryService>();
+            services.AddScoped<IBaseService<Country>, BaseService<Country>>();
         }
     }
 }

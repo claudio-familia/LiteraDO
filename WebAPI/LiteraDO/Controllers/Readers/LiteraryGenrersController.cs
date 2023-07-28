@@ -11,9 +11,9 @@ namespace LiteraDO.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class LiteraryGenresController : BaseController<LiteraryGenre, LiteraryGenreDto>
+    public class LiteraryGenresController : BaseController<LiteraryGenre>
     {
-        public LiteraryGenresController(IBaseService<LiteraryGenre, LiteraryGenreDto> baseService) : base(baseService)
+        public LiteraryGenresController(IBaseService<LiteraryGenre> baseService) : base(baseService)
         {
         }
     }

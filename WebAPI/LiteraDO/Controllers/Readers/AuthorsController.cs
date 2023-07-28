@@ -11,9 +11,9 @@ namespace LiteraDO.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class AuthorsController : BaseController<Author, AuthorDto>
+    public class AuthorsController : BaseController<Author>
     {
-        public AuthorsController(IBaseService<Author, AuthorDto> baseService) : base(baseService)
+        public AuthorsController(IBaseService<Author> baseService) : base(baseService)
         {
         }
     }

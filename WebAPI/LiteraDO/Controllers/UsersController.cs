@@ -10,14 +10,14 @@ namespace LiteraDO.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [AllowAnonymous]
-    public class UsersController : BaseController<User, UserDto>
+    public class UsersController : BaseController<User>
     {
-        public UsersController(IBaseService<User, UserDto> baseService) : base(baseService)
+        public UsersController(IBaseService<User> baseService) : base(baseService)
         {
         }
 
         [AllowAnonymous]
-        public override IActionResult Post(UserDto entity)
+        public override IActionResult Post(User entity)
         {
             return base.Post(entity);
         }

@@ -1,5 +1,4 @@
-﻿using LiteraDO.BusinessLogic.Dto;
-using LiteraDO.BusinessLogic.Services.Contracts;
+﻿using LiteraDO.BusinessLogic.Services.Contracts;
 using LiteraDO.Controllers.Base;
 using LiteraDO.Domain.Users;
 using Microsoft.AspNetCore.Authorization;
@@ -10,9 +9,9 @@ namespace LiteraDO.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class CountriesController : BaseController<Country, CountryDto>
+    public class CountriesController : BaseController<Country>
     {
-        public CountriesController(IBaseService<Country, CountryDto> baseService) : base(baseService)
+        public CountriesController(IBaseService<Country> baseService) : base(baseService)
         {
         }
 

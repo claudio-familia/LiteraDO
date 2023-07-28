@@ -4,12 +4,11 @@ using LiteraDO.Common.Models;
 
 namespace LiteraDO.Controllers.Base
 {
-    public class BaseController<T, Dto> : ControllerBase
+    public class BaseController<T> : ControllerBase
         where T : class, IAuditableEntity, new()
-        where Dto : class, new()
     {
-        private readonly IBaseService<T, Dto> _baseService;
-        public BaseController(IBaseService<T, Dto> baseService)
+        private readonly IBaseService<T> _baseService;
+        public BaseController(IBaseService<T> baseService)
         {
             _baseService = baseService;
         }
@@ -31,7 +30,7 @@ namespace LiteraDO.Controllers.Base
         }
 
         [HttpPost]
-        public virtual IActionResult Post(Dto entity)
+        public virtual IActionResult Post(T entity)
         {
             var response = _baseService.Add(entity);
 
@@ -39,7 +38,7 @@ namespace LiteraDO.Controllers.Base
         }
 
         [HttpPut]
-        public virtual IActionResult Put(Dto entity)
+        public virtual IActionResult Put(T entity)
         { 
             var response = _baseService.Update(entity);
 

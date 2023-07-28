@@ -1,5 +1,4 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using LiteraDO.BusinessLogic.Dto;
 using LiteraDO.Domain.Users;
 
 namespace LiteraDO.BusinessLogic.Services.Contracts
