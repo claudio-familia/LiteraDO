@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable, delay } from 'rxjs';
 import { LoadingService } from './core/services/loading.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'literado-root',
@@ -18,7 +19,7 @@ export class AppComponent implements AfterViewInit {
       private loadingService: LoadingService
     ) {     
     const token = localStorage.getItem('literado-token');    
-    this.isAuthenticated = token != null;
+    this.isAuthenticated = environment.authenticateUsers ? token != null : true;
   }
   ngAfterViewInit(): void {
     this.loadingService.isLoading.subscribe(loadingState => {

@@ -1,0 +1,49 @@
+[
+    {
+        "name": "browse",
+        "label": "Explorar",
+        "submenu": []
+    },
+    {
+        "name": "write",
+        "label": "Mi taller",
+        "submenu": [
+            {
+                "name": "write",
+                "label": "Escribir una nueva historia",
+                "route": ""
+            },
+            {
+                "name": "history",
+                "label": "Mis historias",
+                "route": ""
+            }
+        ]
+    },
+    {
+        "name": "reading",
+        "label": "Mis Libros",
+        "submenu": [
+            {
+                "name": "inprogress",
+                "label": "Leyendo",
+                "route": ""
+            },
+            {
+                "name": "readinglist",
+                "label": "Mis lista de lectura",
+                "route": ""
+            },
+            {
+                "name": "favorite",
+                "label": "Mis citas favoritas",
+                "route": ""
+            }
+        ]
+    },
+    {
+        "name": "comunity",
+        "label": "Mis comunidades",
+        "submenu": []
+    }
+]
