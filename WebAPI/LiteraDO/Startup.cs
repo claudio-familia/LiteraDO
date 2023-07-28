@@ -1,4 +1,3 @@
-using AutoMapper;
 using LiteraDO.Configuration;
 using LiteraDO.DataAccess.Configuration;
 
@@ -15,8 +14,6 @@ namespace LiteraDO
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
