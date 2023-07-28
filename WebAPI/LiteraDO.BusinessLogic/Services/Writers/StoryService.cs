@@ -26,7 +26,7 @@ namespace LiteraDO.BusinessLogic.Services.Writers
             return repository.GetAll().Where(x => x.CreatorUserId == currentUser.UserId);
         }
 
-        public override StoryDto Get(int id)
+        public override Story Get(int id)
         {
             var result = dataRepository.Get(id);
 
