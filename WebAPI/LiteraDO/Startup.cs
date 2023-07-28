@@ -27,8 +27,6 @@ namespace LiteraDO
 
             services.AddSwaggerSettings();
 
-            services.AddScoped<IMapper, Mapper>();
-
             services.AddRespositories(Configuration);
 
             services.AddServices();

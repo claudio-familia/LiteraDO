@@ -18,7 +18,7 @@ namespace LiteraDO.BusinessLogic.Services
             repository = _repository;
         }
 
-        public virtual T Add(T newEntity)
+        public virtual T Add(T entity)
         {
             try
             {
