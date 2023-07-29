@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     MatSidenavModule,
     MatListModule,
     MatSlideToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,

@@ -7,11 +7,11 @@
       <mat-menu class="main-menu" #random="matMenu" xPosition="before">
         <button *ngFor="let subitem of item.submenu" mat-menu-item>{{subitem.label}}</button>
       </mat-menu>
-      <a mat-list-item href="#" [matMenuTriggerFor]="random">{{item.label}}</a>
+      <a mat-list-item href="#" [routerLink]="item.route" [matMenuTriggerFor]="random">{{item.label}}</a>
     </ng-container>  
   <!-- Menu item without submenu -->
   <ng-container *ngIf="item.submenu.length === 0">
-    <a mat-list-item href="#">{{item.label}}</a>
+    <a mat-list-item href="#" [routerLink]="item.route">{{item.label}}</a>
   </ng-container>  
 </ng-container>
 </mat-nav-list>

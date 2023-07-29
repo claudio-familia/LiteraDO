@@ -1,0 +1,23 @@
+:host {
+    .create__story {
+        .stepper {
+            display: flex;
+            justify-content: center;
+            background-color: aliceblue;
+            div {
+                padding: 20px;
+                cursor: pointer;
+                &:hover {
+                    font-weight: bold;
+                }
+                &.active {
+                    font-weight: bold;
+                    border-bottom: 2px solid gray;
+                }
+            }
+        }
+        .content {
+            padding: 0px 20px;
+        }
+    }
+}
