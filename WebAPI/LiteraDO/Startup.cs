@@ -17,9 +17,7 @@ namespace LiteraDO
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddControllers().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            );
+            services.AddControllers();
 
             services.AddCors(o => o.AddPolicy("EveryOne", builder =>
             {
