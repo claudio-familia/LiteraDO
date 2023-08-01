@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    ApiUrl: 'https://localhost:44327/api/',
+    ApiUrl: 'https://literado-api.azurewebsites.net/api/',
     urls: {
       users: "users",
       auth: "authentication",

@@ -13,14 +13,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomeModule } from './features/home/home.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorProviders } from './core/services/interceptors/http.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SettingsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -35,6 +38,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
     ToastrModule.forRoot({}),
     StoreModule.forRoot({}, {}),
     HttpClientModule,
