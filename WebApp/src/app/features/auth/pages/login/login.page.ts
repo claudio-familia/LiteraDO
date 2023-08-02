@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { AuthModel } from '../../models/auth';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'literado-login',
@@ -13,7 +12,6 @@ export class LoginPage {
   
   constructor(
     private fb: FormBuilder, 
-    private router: Router, 
     private authService: AuthService) {
     const token = localStorage.getItem("literado-token");
     if (token && token !== "") {
