@@ -1,10 +1,4 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
 using LiteraDO.Configuration;
 using LiteraDO.DataAccess.Configuration;
 
@@ -21,6 +15,10 @@ namespace LiteraDO
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddControllers();
+
             services.AddCors(o => o.AddPolicy("EveryOne", builder =>
             {
                 builder.AllowAnyOrigin();
@@ -29,8 +27,6 @@ namespace LiteraDO
             }));
 
             services.AddSwaggerSettings();
-
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IMapper, Mapper>();
 
@@ -43,10 +39,6 @@ namespace LiteraDO
             services.AddJWTAuthentication(Configuration);
 
             services.AddHttpContextAccessor();
-
-            services.AddControllers().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,11 +59,11 @@ namespace LiteraDO
 
             app.UseRouting();
 
+            app.UseCors("EveryOne");
+
             app.UseAuthentication();
 
             app.UseAuthorization();
-
-            app.UseCors("EveryOne");
 
             app.UseEndpoints(endpoints =>
             {

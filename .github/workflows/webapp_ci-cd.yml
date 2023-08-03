@@ -3,7 +3,7 @@ name: Publish Angular WebApp to Azure 📚🌐
 on:
   push:
     branches:
-      - master
+      - release-web
   workflow_dispatch:
 
 jobs:

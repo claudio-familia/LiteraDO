@@ -1,15 +1,18 @@
-<mat-toolbar>Menu</mat-toolbar>
+<mat-toolbar>Logo</mat-toolbar>
+
 <mat-nav-list>
-  <a mat-list-item href="#" [matMenuTriggerFor]="argentina">Link 1</a>
-  <a mat-list-item href="#">Link 2</a>
-  <a mat-list-item href="#">Link 3</a>
+  <ng-container *ngFor="let item of menu">
+    <!-- Menu item with submenu -->
+    <ng-container *ngIf="item.submenu.length > 0">
+      <mat-menu class="main-menu" #random="matMenu" xPosition="before">
+        <button *ngFor="let subitem of item.submenu" mat-menu-item>{{subitem.label}}</button>
+      </mat-menu>
+      <a mat-list-item href="#" [matMenuTriggerFor]="random">{{item.label}}</a>
+    </ng-container>  
+  <!-- Menu item without submenu -->
+  <ng-container *ngIf="item.submenu.length === 0">
+    <a mat-list-item href={{item.name}}>{{item.label}}</a>
+  </ng-container>  
+</ng-container>
 </mat-nav-list>
 
-
-<mat-menu class="main-menu" #argentina="matMenu" xPosition="before">
-    <button mat-menu-item>La Nación</button>
-    <button mat-menu-item>Clarin</button>
-    <button mat-menu-item>Ambito</button>
-    <button mat-menu-item>Infobae</button>
-    <button mat-menu-item>Cronista</button>
-</mat-menu>

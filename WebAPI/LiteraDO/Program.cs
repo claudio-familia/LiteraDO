@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using LiteraDO.DataAccess;
 using LiteraDO.DataAccess.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace LiteraDO
 {
