@@ -11,7 +11,7 @@
     </ng-container>  
   <!-- Menu item without submenu -->
   <ng-container *ngIf="item.submenu.length === 0">
-    <a mat-list-item href="#">{{item.label}}</a>
+    <a mat-list-item href={{item.name}}>{{item.label}}</a>
   </ng-container>  
 </ng-container>
 </mat-nav-list>

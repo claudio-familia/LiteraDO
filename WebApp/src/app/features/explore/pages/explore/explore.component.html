@@ -1,0 +1,9 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Explore</h1>
+  <div class="gallary_container">
+      <div *ngFor="let book of books | async" class={{book.mosaicType}}>
+        <img src={{book.url}} alt={{book.alt}} loading={{book.loadingType}}/>
+        <p>{{book.alt}}</p>
+      </div>
+  </div>
+</div>

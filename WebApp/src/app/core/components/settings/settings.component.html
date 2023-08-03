@@ -1,13 +1,13 @@
 <div style="height: 60vh;width: 80vw;">
   <h2 mat-dialog-title>{{ data.title }}</h2>
-  <div mat-dialog-content style="height: 40vh">
+  <div mat-dialog-content style="height: 40vh;margin:2%;">
     <div>
-      <h3>Seccion 1</h3>
-      <p>{{ data.message }}</p>      
+      <h3>General</h3>  
     </div>
     <hr>
     <div>
-      <h3>Seccion 2</h3>  
+      <h3>Appearance</h3>
+      <mat-slide-toggle checked="false" (change)="changeTheme($event)">{{darkTheme}}</mat-slide-toggle>     
     </div>
     <hr>
   </div>

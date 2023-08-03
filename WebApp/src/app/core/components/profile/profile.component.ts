@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { SettingsComponent } from '../../../settings/settings.component';
+import { SettingsComponent } from '../settings/settings.component';
 // import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'literado-profile',
