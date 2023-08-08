@@ -18,7 +18,11 @@
                 (generalInformationForm)="goToDetail($event)"
             >
             </literado-general-information>
-            <literado-story-detail *ngIf="tab === 'detail'"></literado-story-detail>
+            <literado-story-detail 
+                *ngIf="tab === 'detail'"
+                [detailForm]="createStoryForm.get('detail')"
+                (storyDetailForm)="goToReview($event)"
+            ></literado-story-detail>
             <literado-story-review *ngIf="tab === 'review'"></literado-story-review>
         </div>
     </div>

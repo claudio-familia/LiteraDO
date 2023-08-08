@@ -1,1 +1,59 @@
-<p>story-detail works!</p>
+<form *ngIf="detailForm" [formGroup]="detailForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card>
+        <mat-card-header class="detail">
+            <div class="title-container full-width">
+                <mat-card-title>
+                    <div class="text-input">
+                        <i class="ri-user-fill"></i>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <input 
+                                matInput 
+                                placeholder="Tags"
+                                formControlName="tags" />
+                            <mat-icon matPrefix>bookmark</mat-icon>
+                        </mat-form-field>
+                        <p>
+                            tags
+                        </p>
+                    </div>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <i class="ri-user-fill"></i>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <input 
+                                matInput 
+                                placeholder="Audencia" 
+                                formControlName="audience" />
+                            <mat-icon matPrefix>group</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <i class="ri-user-fill"></i>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <input 
+                                matInput 
+                                placeholder="Lenguaje" 
+                                formControlName="language" />
+                            <mat-icon matPrefix>translate</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <i class="ri-user-fill"></i>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <input 
+                                matInput 
+                                placeholder="Contiene contenido para adultos?" 
+                                formControlName="mature" />
+                            <mat-icon matPrefix>no_adult_content</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </mat-card-subtitle>
+            </div>
+        </mat-card-header>
+    </mat-card>
+</form>
