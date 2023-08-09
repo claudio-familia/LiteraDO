@@ -1,6 +1,6 @@
 [
     {
-        "name": "browse",
+        "name": "#/explore",
         "label": "Explorar",
         "submenu": [],
         "route": "explore"

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatCardModule } from '@angular/material/card';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -14,6 +14,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { RouterModule } from '@angular/router';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidenavComponent,
     ProfileComponent,
-    LoadingComponent
+    LoadingComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
@@ -33,11 +35,12 @@ import { RouterModule } from '@angular/router';
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
-    RouterModule
+    RouterModule,
+    MatCardModule
   ],
   exports: [
     NavbarComponent,
-    LoadingComponent
+    LoadingComponent,
   ]
 })
 export class CoreModule { }
