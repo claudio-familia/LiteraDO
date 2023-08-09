@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    authenticateUsers: false,
+    authenticateUsers: true,
     ApiUrl: 'https://localhost:44327/api/',
     urls: {
       users: "users",

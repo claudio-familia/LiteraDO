@@ -4,22 +4,53 @@ namespace LiteraDO.BusinessLogic.Dto
 {
     public class StoryDto
     {
+        [JsonPropertyName("id")]
         public int Id { get; set; }
+
+        [JsonPropertyName("userId")]
         public int UserId { get; set; }
+
+        [JsonPropertyName("literaryGenreId")]
         public int LiteraryGenreId { get; set; }
+
+        [JsonPropertyName("title")]
         public string Title { get; set; }
+
+        [JsonPropertyName("description")]
         public string Description { get; set; }
+
+        [JsonPropertyName("cover")]
         public string Cover { get; set; }
-        public DateTime PublishedDate { get; set; }
-        public decimal Rating { get; set; }
-        public decimal Reads { get; set; }
+
+        [JsonPropertyName("publishedDate")]
+        public DateTime? PublishedDate { get; set; }
+
+        [JsonPropertyName("rating")]
+        public decimal? Rating { get; set; }
+
+        [JsonPropertyName("reads")]
+        public decimal? Reads { get; set; }
+
+        [JsonPropertyName("copyrightType")]
         public string CopyrightType { get; set; }
+
+        [JsonPropertyName("tags")]
         public string Tags { get; set; }
+
+        [JsonPropertyName("tagetAudience")]
         public string TagetAudience { get; set; }
+
+        [JsonPropertyName("language")]
         public string Language { get; set; }
+
+        [JsonPropertyName("hasAdultContent")]
         public bool HasAdultContent { get; set; }
 
-        [JsonIgnore]
-        public UserDto User { get; set; }
+        [JsonPropertyName("isPublish")]
+        public string IsPublish => PublishedDate.HasValue && PublishedDate.Value > new DateTime(2000, 1, 1) ? "Esta publicada" : "No publicada";
+
+        public UserDto? User { get; set; }
+
+        public LiteraryGenreDto? LiteraryGenre { get; set; }
     }
 }

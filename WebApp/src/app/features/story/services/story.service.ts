@@ -11,4 +11,8 @@ export class StoryService extends BaseService<Story> {
     constructor(private _http: HttpClient) {
         super(environment.urls.story, _http)
     }
+
+    createStory(data: FormData) {
+      return this._http.post(`${this._apiUrl}/create`, data, {headers: this._headers});
+    }
 }

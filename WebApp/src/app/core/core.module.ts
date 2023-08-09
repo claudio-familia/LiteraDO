@@ -15,6 +15,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { SettingsComponent } from './components/settings/settings.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ProfileInformationComponent } from './components/profile-information/profile-information.component';
 
 
 @NgModule({
@@ -24,7 +31,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     SidenavComponent,
     ProfileComponent,
     LoadingComponent,
-    SettingsComponent
+    SettingsComponent,
+    ProfileInformationComponent
   ],
   imports: [
     CommonModule,
@@ -36,11 +44,18 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatSlideToggleModule,
     MatMenuModule,
     RouterModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatDatepickerModule, 
+    MatNativeDateModule
   ],
   exports: [
     NavbarComponent,
     LoadingComponent,
+    ProfileInformationComponent
   ]
 })
 export class CoreModule { }

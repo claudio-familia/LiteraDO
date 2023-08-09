@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Detail, GeneralInformation } from '../../models/story';
 import { FormBuilder, Validators } from '@angular/forms';
+import { StoryService } from '../../services/story.service';
+import { AlertService } from 'src/app/core/services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'literado-create-story',
@@ -9,7 +12,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateStoryPage {
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder, 
+    private storyService: StoryService, 
+    private alertService: AlertService,
+    private router: Router) {}
 
   tab: "information" | "detail" | "review" = "information"
   generalInformation: any;
@@ -51,7 +58,7 @@ export class CreateStoryPage {
     if (currentValue.detail && this.createStoryForm.get("detail")) {
       currentValue.detail.audience = detail.audience;
       currentValue.detail.language = detail.language;
-      currentValue.detail.matureContent = detail.matureContent;
+      currentValue.detail.mature = detail.mature;
       currentValue.detail.tags = detail.tags;
 
       this.createStoryForm.get("general")?.patchValue(currentValue);
@@ -62,6 +69,29 @@ export class CreateStoryPage {
 
 
   onSubmit(): void {
-    console.log(this.createStoryForm.valid, this.createStoryForm.value)
+    const data = new FormData();
+    const userId = 0;
+    data.append("asset", this.generalInformation.img.file, this.generalInformation.img.file.name);
+    data.append("story", JSON.stringify({
+      userId: userId,
+      literaryGenreId: this.createStoryForm.value.general?.category,
+      title: this.createStoryForm.value.general?.title,
+      description: this.createStoryForm.value.general?.description,
+      cover: "",
+      publishedDate: null,
+      rating: null,
+      reads: null,
+      copyrightType: null,
+      tags: this.createStoryForm.value.detail?.tags,
+      tagetAudience: this.createStoryForm.value.detail?.audience,
+      language: this.createStoryForm.value.detail?.language,
+      hasAdultContent: this.createStoryForm.value.detail?.mature,
+    }));
+
+    this.storyService.createStory(data).subscribe(data => {
+      this.alertService.ModalNotification("Excelente!", "Historia creada correctamente", "success").then(() => {
+        this.router.navigateByUrl("story");
+      });
+    });
   }
 }

@@ -3,13 +3,13 @@
       <mat-card-title>{{title}}</mat-card-title>
       <mat-card-subtitle>{{category}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="imgUrl" [alt]="title">
+    <img mat-card-image [src]="urlImg" [alt]="title">
     <mat-card-content>
       <p>
         {{description}}
       </p>
     </mat-card-content>
-    <div class="right-content">
-        <button mat-raised-button color="primary" type="button">Crear historia</button>
+    <div class="right-content p10">
+        <button mat-raised-button color="primary" type="button" (click)="submit()">Crear historia</button>
     </div>
 </mat-card>

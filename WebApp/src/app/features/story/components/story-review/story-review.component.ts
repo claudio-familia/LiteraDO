@@ -1,4 +1,4 @@
-import { OnInit, Component, Input } from '@angular/core';
+import { OnInit, Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'literado-story-review',
@@ -10,15 +10,17 @@ export class StoryReviewComponent implements OnInit {
   @Input() category: string = '';
   @Input() imgUrl: any;
   @Input() description: string = '';
+  @Output() create: EventEmitter<any> = new EventEmitter();
 
   urlImg: string = "https://placehold.co/750x600"
 
   ngOnInit(): void {
-    console.log(this.imgUrl)
     if(this.imgUrl) {
-      const src = URL.createObjectURL(this.imgUrl);      
-      this.urlImg = src;
+      this.urlImg = this.imgUrl;
     }
-    console.log(this.urlImg)
+  }
+
+  submit(): void {
+    this.create.emit();
   }
 }

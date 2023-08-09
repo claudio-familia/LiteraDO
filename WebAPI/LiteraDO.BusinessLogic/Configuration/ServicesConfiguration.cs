@@ -18,6 +18,7 @@ namespace LiteraDO.DataAccess.Configuration
         {
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ICryptographyService, CryptographyService>();
+            services.AddScoped<IBlobStorageService, BlobStorageService >();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IBaseService<User, UserDto>, UserService>();            
 

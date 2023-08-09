@@ -1,44 +1,13 @@
-<div class="literado__login">
-  <div class="design">
-      <div class="pill-1 rotate-45"></div>
-      <div class="pill-2 rotate-45"></div>
-      <div class="pill-3 rotate-45"></div>
-      <div class="pill-4 rotate-45"></div>
-  </div>
-  <div class="login">
+<div class="profile_information">
     <form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
-        <h2 class="title">litera-do</h2>
-        <h3 class="title">Nuevo usuario</h3>
+        <h2 class="title">Información de usuario</h2>
         <div class="main-row">
           <div class="col">
             <mat-form-field class="full-width">
               <mat-icon matPrefix>account_circle</mat-icon>
-              <input matInput placeholder="Usuario" formControlName="username">
+              <input matInput readonly placeholder="Usuario" formControlName="username">
               <mat-error *ngIf="getControl('username').hasError('required')">
                 El usuario es requerido.
-              </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="main-row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <mat-icon matPrefix>lock</mat-icon>
-              <input matInput type="password" placeholder="Contraseña" formControlName="password">
-              <mat-error *ngIf="getControl('password').hasError('required')">
-                La contraseña es requerida.
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col">
-            <mat-form-field class="full-width">
-              <mat-icon matPrefix>lock</mat-icon>
-              <input matInput type="password" placeholder="Confirma la contraseña" formControlName="confirmPassword">
-              <mat-error *ngIf="getControl('confirmPassword').hasError('required')">
-                La confirmacíon de la contraseña es requerida.
-              </mat-error>
-              <mat-error *ngIf="passwordMustConfirm()">
-                Las contraseñas no coinciden.
               </mat-error>
             </mat-form-field>
           </div>
@@ -106,18 +75,18 @@
           <mat-form-field class="full-width">
             <mat-label>Preferencia princial</mat-label>
             <mat-select placeholder="Preferencia" formControlName="targetPreference">
-              <mat-option value="0">Lector</mat-option>
-              <mat-option value="1">Escritor</mat-option>
-              <mat-option value="2">Ambos</mat-option>
+              <mat-option [value]="0">Lector</mat-option>
+              <mat-option [value]="1">Escritor</mat-option>
+              <mat-option [value]="2">Ambos</mat-option>
             </mat-select>
             <mat-error *ngIf="getControl('targetPreference').hasError('required')">
               La preferencia es requerida.
             </mat-error>
           </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" type="submit">Register</button>
+        <div class="right-content">
+            <button mat-raised-button color="primary" type="submit">Guardar información</button>
+        </div>
     </form>
   </div>
-</div>
-
-  
+    

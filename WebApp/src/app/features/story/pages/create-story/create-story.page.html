@@ -1,4 +1,4 @@
-<form *ngIf="createStoryForm" novalidate (ngSubmit)="onSubmit()">
+<form *ngIf="createStoryForm" novalidate>
     <div class="create__story">
         <div class="stepper">
             <div [ngClass]="{'active' : tab === 'information'}" (click)="tabChange('information')">
@@ -31,6 +31,7 @@
                 [category]="generalInformation.category"
                 [imgUrl]="generalInformation.img ? generalInformation.img.url : ''"
                 [description]="generalInformation.data.description"
+                (create)="onSubmit()"
             ></literado-story-review>
         </div>
     </div>

@@ -4,6 +4,7 @@ using LiteraDO.BusinessLogic.Services.Contracts;
 using LiteraDO.Common.Services.Contracts;
 using LiteraDO.DataAccess.Repositories.Contracts;
 using LiteraDO.Domain.Writers;
+using Microsoft.EntityFrameworkCore;
 
 namespace LiteraDO.BusinessLogic.Services.Writers
 {
@@ -27,7 +28,7 @@ namespace LiteraDO.BusinessLogic.Services.Writers
 
         public override IEnumerable<StoryDto> GetAll()
         {
-            var result = repository.GetAll().Where(x => x.CreatorUserId == currentUser.UserId);
+            var result = repository.GetAll(x => x.Include(i => i.LiteraryGenre), x => x.UserId == currentUser.UserId);
 
             return mapper.Map<IEnumerable<StoryDto>>(result);
         }

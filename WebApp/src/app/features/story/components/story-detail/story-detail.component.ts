@@ -29,7 +29,6 @@ export class StoryDetailComponent {
   }
 
   deleteTag(tag: string): void {
-    console.log(tag)
     const array = this.selectedTags.split(',');
     this.selectedTags = array.filter(v => v !== tag).join();
   }

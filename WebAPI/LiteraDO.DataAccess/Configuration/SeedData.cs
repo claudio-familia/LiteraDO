@@ -54,7 +54,8 @@ namespace LiteraDO.DataAccess.Configuration
                     new LiteraryGenre() { Id = 8, Name = "Misterio", Description = "" },
                     new LiteraryGenre() { Id = 9, Name = "Paranormal", Description = "" },
                     new LiteraryGenre() { Id = 10, Name = "Spiritual", Description = "" },
-                    new LiteraryGenre() { Id = 11, Name = "Casos de la vida", Description = "" }
+                    new LiteraryGenre() { Id = 11, Name = "Casos de la vida", Description = "" },
+                    new LiteraryGenre() { Id = 12, Name = "Romance", Description = "" }
                 );
 
                 saveChanges = true;

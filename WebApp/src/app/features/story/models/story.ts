@@ -13,5 +13,5 @@ export interface Detail {
     tags: string[];
     audience: string;
     language: string;
-    matureContent: boolean;
+    mature: boolean;
 }

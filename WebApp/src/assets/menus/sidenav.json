@@ -12,12 +12,12 @@
             {
                 "name": "write",
                 "label": "Escribir una nueva historia",
-                "route": "/story/create"
+                "route": "story/create"
             },
             {
                 "name": "history",
                 "label": "Mis historias",
-                "route": "/story"
+                "route": "story"
             }
         ]
     },
@@ -41,10 +41,5 @@
                 "route": ""
             }
         ]
-    },
-    {
-        "name": "comunity",
-        "label": "Mis comunidades",
-        "submenu": []
     }
 ]
