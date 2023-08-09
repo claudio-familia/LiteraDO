@@ -13,8 +13,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { RouterModule } from '@angular/router';
 import { SettingsComponent } from './components/settings/settings.component';
-// import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -24,8 +24,7 @@ import { SettingsComponent } from './components/settings/settings.component';
     SidenavComponent,
     ProfileComponent,
     LoadingComponent,
-    SettingsComponent,
-    // CardComponent
+    SettingsComponent
   ],
   imports: [
     CommonModule,
@@ -36,12 +35,12 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
+    RouterModule,
     MatCardModule
   ],
   exports: [
     NavbarComponent,
     LoadingComponent,
-    // CardComponent
   ]
 })
 export class CoreModule { }

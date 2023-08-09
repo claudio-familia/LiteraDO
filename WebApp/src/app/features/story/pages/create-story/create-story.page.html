@@ -1,0 +1,37 @@
+<form *ngIf="createStoryForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="create__story">
+        <div class="stepper">
+            <div [ngClass]="{'active' : tab === 'information'}" (click)="tabChange('information')">
+                1 - Información general
+            </div>
+            <div [ngClass]="{'active' : tab === 'detail'}"  (click)="tabChange('detail')">
+                2 - Detalles de la historia
+            </div>
+            <div [ngClass]="{'active' : tab === 'review'}"  (click)="tabChange('review')">
+                3 - Confirmar información
+            </div>
+        </div>
+        <div class="content">
+            <literado-general-information 
+                *ngIf="tab === 'information' && createStoryForm.get('general')"
+                [generalInfoForm]="createStoryForm.get('general')"
+                [imgFile]="generalInformation ?  generalInformation.imgUrl : null"
+                (generalInformationForm)="goToDetail($event)"
+            >
+            </literado-general-information>
+            <literado-story-detail 
+                *ngIf="tab === 'detail'"
+                [detailForm]="createStoryForm.get('detail')"
+                (goBackMethod)="tab = $event"
+                (storyDetailForm)="goToReview($event)"
+            ></literado-story-detail>
+            <literado-story-review 
+                *ngIf="tab === 'review'"
+                [title]="generalInformation.data.title"
+                [category]="generalInformation.category"
+                [imgUrl]="generalInformation.img ? generalInformation.img.url : ''"
+                [description]="generalInformation.data.description"
+            ></literado-story-review>
+        </div>
+    </div>
+</form>

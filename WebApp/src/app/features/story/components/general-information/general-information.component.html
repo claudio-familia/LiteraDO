@@ -1,0 +1,67 @@
+<form *ngIf="generalInfoForm" [formGroup]="generalInfoForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card>
+        <mat-card-header class="general-information">
+            <div class="title-container full-width">
+                <mat-card-title>
+                    <div class="text-input">
+                        <label class="label">Titulo</label>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <input 
+                                matInput 
+                                placeholder="Titulo" 
+                                formControlName="title" />
+                            <mat-icon matPrefix>title</mat-icon>
+                            <mat-error *ngIf="generalInfoForm.get('title')?.hasError('required')">
+                                El titulo es requerido.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <label class="label">Categoria</label>
+                        <mat-form-field class="full-width">
+                            <mat-label>Categoria</mat-label>
+                            <mat-select placeholder="Categoria" formControlName="category">
+                              <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="generalInfoForm.get('category')?.hasError('required')">
+                                La categoria es requerida.
+                            </mat-error>
+                          </mat-form-field>
+                    </div>
+                </mat-card-subtitle>
+            </div>
+            <div class="img-container">
+                <input 
+                    #inputLoader 
+                    accept="image/*" 
+                    type="file"
+                    (change)="showPreview($event)"
+                    />
+                <img  
+                    #imgLoader 
+                    mat-card-lg-image 
+                    (click)="openFileExplorer()"
+                    title="Cambiar cover"
+                    src="https://placehold.co/750x600" 
+                    alt="your cover image" />
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <label class="label">Descripción</label>
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Descripción</mat-label>
+                <textarea 
+                    matInput
+                    placeholder="Descripción" 
+                    formControlName="description"></textarea>
+                <mat-icon matPrefix>description</mat-icon>
+            </mat-form-field>
+
+            <div class="right-content">
+                <button mat-raised-button type="submit" color="primary">Siguiente</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
