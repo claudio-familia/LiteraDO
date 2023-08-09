@@ -9,6 +9,8 @@ export const environment = {
     urls: {
       users: "users",
       auth: "authentication",
-      country: "countries"
+      country: "countries",
+      category: "literaryGenres",
+      story: "stories"
     }
   };

@@ -26,7 +26,6 @@ export class AppComponent implements AfterViewInit {
       this.isLoading = loadingState;
   });
   }
-
   ngOnInit(): void {
     if(!this.isAuthenticated) 
       this.router.navigateByUrl('/login');

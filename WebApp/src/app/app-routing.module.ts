@@ -10,6 +10,14 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
   },
+  {
+    path: 'story',
+    loadChildren: () => import('./features/story/story.module').then(m => m.StoryModule)
+  },
+  {
+    path: 'explore',
+    loadChildren: () => import('./features/explore/explore.module').then(m => m.ExploreModule)
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

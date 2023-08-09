@@ -23,13 +23,9 @@
 
 <h3>Environtment (Ambientes)</h3>
 <ul>
-  <h4>Heroku</h4>
+  <h4>Azure</h4>
   <p>
     El ambiente de publicación que estamos utilizando es hosteado en heroku. Heroku es una plataforma como servicio (PaaS) de computación en la Nube que soporta distintos lenguajes de programación. Nuestra aplicacion es hospedada allí gracias a que la tenemos en un contenedor de docker.
-  </p>
-  <h4>Docker</h4>
-  <p>
-    Docker es un proyecto de código abierto que automatiza el despliegue de aplicaciones dentro de contenedores de software, proporcionando una capa adicional de abstracción y automatización de virtualización de aplicaciones en múltiples sistemas operativos
   </p>
   <h4>Continous Delivery</h4>
   <p>
@@ -50,6 +46,13 @@
   <h4>MySQL</h4> 
   <p>
     La persistencia de datos en la aplicación la manejamos utiliznado el gestor de bases de datos MySQL el cual es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual; una de las más populares en general junto a Oracle y Microsoft SQL Server, todo para entornos de desarrollo web. El servicio lo utilizamos a traves de Jaws que es ofrecido por heroku.
+  </p>
+  <p>
+    Para general modelos debes usar el siguiente comando luego de hacer los cambios en el dbcontext:
+    <pre>
+     cd .\LiteraDO.DataAccess
+     dotnet ef --startup-project ../LiteraDO/ migrations add MigrationName
+    </pre>
   </p>
   
 </ul>

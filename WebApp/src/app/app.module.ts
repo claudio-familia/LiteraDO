@@ -12,7 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomeModule } from './features/home/home.module';
+import { ExploreModule } from './features/explore/explore.module';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorProviders } from './core/services/interceptors/http.interceptor';
@@ -29,15 +31,17 @@ import { ToastrModule } from 'ngx-toastr';
     AuthModule,
     CoreModule,
     HomeModule,
+    ExploreModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
     ToastrModule.forRoot({}),
     StoreModule.forRoot({}, {}),
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [HttpInterceptorProviders],
   bootstrap: [AppComponent]
