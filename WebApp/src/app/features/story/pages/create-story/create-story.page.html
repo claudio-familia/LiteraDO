@@ -15,15 +15,23 @@
             <literado-general-information 
                 *ngIf="tab === 'information' && createStoryForm.get('general')"
                 [generalInfoForm]="createStoryForm.get('general')"
+                [imgFile]="generalInformation ?  generalInformation.imgUrl : null"
                 (generalInformationForm)="goToDetail($event)"
             >
             </literado-general-information>
             <literado-story-detail 
                 *ngIf="tab === 'detail'"
                 [detailForm]="createStoryForm.get('detail')"
+                (goBackMethod)="tab = $event"
                 (storyDetailForm)="goToReview($event)"
             ></literado-story-detail>
-            <literado-story-review *ngIf="tab === 'review'"></literado-story-review>
+            <literado-story-review 
+                *ngIf="tab === 'review'"
+                [title]="generalInformation.data.title"
+                [category]="generalInformation.category"
+                [imgUrl]="generalInformation.img ? generalInformation.img.url : ''"
+                [description]="generalInformation.data.description"
+            ></literado-story-review>
         </div>
     </div>
 </form>

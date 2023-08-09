@@ -12,6 +12,7 @@ export class CreateStoryPage {
   constructor(private fb: FormBuilder) {}
 
   tab: "information" | "detail" | "review" = "information"
+  generalInformation: any;
   createStoryForm = this.fb.group({
     general: this.fb.group({
       title: ["", Validators.required],
@@ -22,7 +23,7 @@ export class CreateStoryPage {
       {
         language: [""],
         audience: [""],
-        tags: [""],
+        tags: ["", Validators.required],
         mature: [false]
       }
     ),
@@ -32,14 +33,13 @@ export class CreateStoryPage {
     this.tab = tab;
   }
 
-  goToDetail(generalInformation: GeneralInformation) {
-    console.log(generalInformation)
+  goToDetail(generalInformation: {data: GeneralInformation, img: any}) {
     const currentValue = { ...this.createStoryForm.value } as any;
     if (currentValue.general && this.createStoryForm.get("general")) {
-      currentValue.general.title = generalInformation.title;
-      currentValue.general.category = generalInformation.category;
-      currentValue.general.description = generalInformation.title;
-
+      currentValue.general.title = generalInformation.data.title;
+      currentValue.general.category = generalInformation.data.category;
+      currentValue.general.description = generalInformation.data.description;
+      this.generalInformation = generalInformation;
       this.createStoryForm.get("general")?.patchValue(currentValue);
     }
 
@@ -47,7 +47,6 @@ export class CreateStoryPage {
   }
 
   goToReview(detail: Detail) {
-    console.log(detail)
     const currentValue = { ...this.createStoryForm.value } as any;
     if (currentValue.detail && this.createStoryForm.get("detail")) {
       currentValue.detail.audience = detail.audience;
@@ -58,7 +57,7 @@ export class CreateStoryPage {
       this.createStoryForm.get("general")?.patchValue(currentValue);
     }
 
-    this.tab = "detail";
+    this.tab = "review";
   }
 
 

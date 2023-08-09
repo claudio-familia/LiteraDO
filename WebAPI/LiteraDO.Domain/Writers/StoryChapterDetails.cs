@@ -10,6 +10,8 @@ namespace LiteraDO.Domain.Writers
     {
         public int StoryChapterId { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string Line { get; set; }
+
+        public StoryChapter StoryChapter { get; set; }
     }
 }

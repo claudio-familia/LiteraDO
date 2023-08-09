@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { BaseService } from 'src/app/core/services/base.service';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Story } from '../models/story';
+import { Category } from 'src/app/features/story/models/category';
 
 @Injectable({
   providedIn: 'root',
 })
-export class StoryService extends BaseService<Story> {
+export class CategoryService extends BaseService<Category> {
     constructor(private _http: HttpClient) {
-        super(environment.urls.story, _http)
+        super(environment.urls.category, _http)
     }
 }

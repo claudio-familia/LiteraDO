@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Detail } from '../../models/story';
 
 @Component({
@@ -9,7 +8,10 @@ import { Detail } from '../../models/story';
 })
 export class StoryDetailComponent {
   @Output() storyDetailForm: EventEmitter<Detail> = new EventEmitter<Detail>;
+  @Output() goBackMethod: EventEmitter<any> = new EventEmitter<any>;;
   @Input() detailForm?: any;
+  @ViewChild('tagInput') tagInput?: ElementRef<HTMLInputElement>;
+  selectedTags: string = '';
 
   constructor(
   ) {}
@@ -18,9 +20,27 @@ export class StoryDetailComponent {
     console.log('Method not implemented.');
   }
 
+  addTag(evt: any) {
+    const value = evt.value;
+    const array = this.selectedTags.split(',');
+    array.push(value);
+    this.selectedTags = array.filter(v => v).join();
+    this.tagInput!.nativeElement.value = "";
+  }
+
+  deleteTag(tag: string): void {
+    console.log(tag)
+    const array = this.selectedTags.split(',');
+    this.selectedTags = array.filter(v => v !== tag).join();
+  }
+
+  goBack(): void {
+    this.goBackMethod.emit("information");
+  }
+
   onSubmit(): void {
     if(this.detailForm && this.detailForm.valid) {
-      this.detailForm?.emit(this.detailForm.value as unknown as Detail);
+      this.storyDetailForm.emit(this.detailForm.value as unknown as Detail);
     }
   }
 }

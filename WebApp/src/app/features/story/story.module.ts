@@ -12,6 +12,8 @@ import { GeneralInformationComponent } from './components/general-information/ge
 import { StoryDetailComponent } from './components/story-detail/story-detail.component';
 import { StoryReviewComponent } from './components/story-review/story-review.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
+    MatSlideToggleModule
   ]
 })
 export class StoryModule { }
