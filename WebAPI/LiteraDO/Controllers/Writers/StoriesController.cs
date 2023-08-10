@@ -10,6 +10,7 @@ using LiteraDO.Domain.Readers;
 using LiteraDO.Domain.Writers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MySqlX.XDevAPI.Common;
 using System.Text.Json;
 
@@ -53,6 +54,15 @@ namespace LiteraDO.Controllers
             var response = baseService.GetPublishStories();
 
             return Ok(response);
+        }
+
+        [Route("stories/my-story/reading")]
+        [HttpGet]
+        public IActionResult GetRadingStories()
+        {
+            var stories = storyUserStateRepository.GetAll(x => x.Include(x => x.Story)).Where(x => x.UserId == currentUserService.UserId.Value);
+
+            return Ok(stories);
         }
 
         [Route("create")]
