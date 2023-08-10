@@ -15,18 +15,18 @@ export class DashboardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Consejo 1', advice: 'Un joven que lee, será un adulto que piensa.', cols: 1, rows: 1 },
+          { title: 'Consejo 2', advice: 'En un buen libro, lo mejor está entre lineas.', cols: 1, rows: 1 },
+          { title: 'Consejo 3', advice: 'Leer nos abre una ventana al mundo.',cols: 1, rows: 1 },
+          { title: 'Consejo 4', advice: 'Yo no estudio para saber más, sino para ignorar menos.',cols: 1, rows: 1 }
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Consejo 1', advice: 'Un joven que lee, será un adulto que piensa.', cols: 2, rows: 1 },
+        { title: 'Consejo 2', advice: 'En un buen libro, lo mejor está entre lineas.',cols: 1, rows: 1 },
+        { title: 'Consejo 3', advice: 'Leer nos abre una ventana al mundo.',cols: 1, rows: 2 },
+        { title: 'Consejo 4', advice: 'Yo no estudio para saber más, sino para ignorar menos.',cols: 1, rows: 1 }
       ];
     })
   );
