@@ -3,7 +3,10 @@
         <img [src]="story.cover" />
     </div>
     <mat-card class="m10">
-        <h2>{{story.title}}</h2>
+        <div class="chapter__title">
+            <h2 class="title">{{story.title}}</h2>
+            <b>Autor:</b>{{story.user.userName}}
+        </div>
         <div class="reading__controls center-content">
             <div class="col-sm-3">
                 <button *ngIf="!isFirstChapter" mat-raised-button type="button" color="primary" 
@@ -11,7 +14,18 @@
                     <mat-icon>arrow_backward</mat-icon> Capitulo anterior
                 </button>
             </div>
-            <div class="col-sm-3 center-content">bd</div>
+            <div class="col-sm-3 center-content">
+                <button 
+                    *ngFor="let chapt of orderedChapters; let i = index"
+                    mat-raised-button
+                    routerLink="/story/reading/{{storyId}}/chapter/{{chapt.id}}" 
+                    type="button" 
+                    class="mr5"
+                    [color]="i === currentChapter ? 'primary' : 'secondary'"
+                >
+                    {{i + 1}}
+                </button>
+            </div>
             <div class="col-sm-3 right-content">
                 <button *ngIf="!isLastChapter" mat-raised-button type="button" color="primary" 
                     routerLink="/story/reading/{{storyId}}/chapter/{{nextChapter.id}}">
@@ -20,18 +34,24 @@
             </div>
         </div>
         <div class="center-content">
-            <div class="col-sm-3">
-                Autor
-            </div>
-            <div class="col-sm-3 center-content">
+            <div class="col-sm-6 chapter__name">
                 {{chapter.name}}
             </div>
             <div class="col-sm-3 right-content">
-                Actions
+                <button *ngIf="hasSelection" mat-raised-button type="button" color="primary" (click)="saveFavorite()">
+                    Agregar cita como favorita <mat-icon>star</mat-icon> 
+                </button>
             </div>
         </div>
         <div class="reading__space">
-            {{chapter.description}}
+            <mat-form-field appearance="fill" class="full-width">
+                <textarea
+                    readonly 
+                    (select)="getSelection($event)"
+                    matInput
+                    placeholder="Detalles del capitulo" 
+                    rows="100">{{chapter.description}}</textarea>
+            </mat-form-field>
         </div>
     </mat-card>
 </div>
