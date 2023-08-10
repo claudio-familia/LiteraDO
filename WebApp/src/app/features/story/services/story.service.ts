@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class StoryService extends BaseService<any> {
+    getReadingBooks() {
+      return this._http.get<any>(`${this._apiUrl}/stories/my-story/reading`, {headers: this._headers});
+    }
     saveReadingInformation(id: any, chapterId: any) {
       return this._http.post(`${this._apiUrl}/${id}/chapterinfo/chapter/${chapterId}`, {}, {headers: this._headers});
     }
