@@ -62,7 +62,7 @@ namespace LiteraDO.BusinessLogic.Services.Writers
         {
             var result = dataRepository.Get(x => x.Include(i => i.LiteraryGenre).Include(i => i.Chapters).Include(x => x.User).ThenInclude(x => x.Country), x => x.Id == id);
 
-            if (result.CreatorUserId != currentUser.UserId) throw new TypeAccessException("This resource does not belong to the requester");
+            if (result.CreatorUserId != currentUser.UserId && result.PublishedDate < new DateTime(2000, 1, 1)) throw new TypeAccessException("This resource does not belong to the requester");
 
             return mapper.Map<StoryDto>(result);
         }
