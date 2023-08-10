@@ -22,7 +22,8 @@ namespace LiteraDO.DataAccess.Configuration
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IBaseService<User, UserDto>, UserService>();            
 
-            services.AddScoped<IBaseService<Story, StoryDto>, StoryService>();
+            services.AddScoped<IStoryService, StoryService>();
+            services.AddScoped<IBaseService<StoryChapter, StoryChapterDto>, BaseService<StoryChapter, StoryChapterDto>>();
             services.AddScoped<IBaseService<Country, CountryDto>, BaseService<Country, CountryDto>>();
             services.AddScoped<IBaseService<LiteraryGenre, LiteraryGenreDto>, BaseService<LiteraryGenre, LiteraryGenreDto>>();
         }

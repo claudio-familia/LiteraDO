@@ -1,0 +1,61 @@
+<div class="right-content m10" *ngIf="firstChapter">
+    <button mat-raised-button type="button" color="primary" routerLink="/story/reading/{{storyId}}/chapter/{{firstChapter.id}}">Empezar a leer historia</button>
+</div>
+<mat-card *ngIf="story">
+    <mat-card-content>
+        <div class="row center-text center-content statadistics">
+            <div class="col-sm-3 review">
+                <img mat-card-image [src]="story.cover" [alt]="story.title">
+            </div>
+            <div class="col-sm-3">
+                <h2 class="title">{{story.title}}</h2>
+                <b>Autor:</b> {{story.user.userName}}
+                <br />
+                <b>{{story.user.country.name}}</b>
+                <br />
+                <br />
+                <p class="description">
+                    {{story.description}}
+                </p>
+
+                <p>Estado: <span class="value">{{state}}</span></p>
+                <span *ngIf="state != 'BORRADOR'" class="date">Publicado el {{ publishedDate }}</span>
+                <br />
+
+                <div class="space-content">
+                    <p>Reviews: <span class="value">{{reviews}}</span></p>
+                    <p>Lecturas: <span class="value">{{reads}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="chapters m10">
+            <div class="space-content">
+                <h3>Capitulos- Cantidad {{countChapters}}</h3>
+            </div>
+            <div>
+                <table mat-table [dataSource]="chapterDataSource">
+        
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Titulo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lines">
+                        <th mat-header-cell *matHeaderCellDef> Lineas </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lines}} </td>
+                    </ng-container>
+
+
+            
+                    <tr mat-header-row *matHeaderRowDef="chapterDisplayedColumns"></tr>
+                    <tr class="pointer" mat-row *matRowDef="let row; columns: chapterDisplayedColumns;" (click)="viewChapter(row)"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[10, 20]"
+                                showFirstLastButtons
+                                aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

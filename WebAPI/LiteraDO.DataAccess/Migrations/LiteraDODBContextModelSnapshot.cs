@@ -530,10 +530,6 @@ namespace LiteraDO.DataAccess.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
@@ -542,6 +538,10 @@ namespace LiteraDO.DataAccess.Migrations
 
                     b.Property<int?>("LastModifierUserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Line")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -811,7 +811,7 @@ namespace LiteraDO.DataAccess.Migrations
             modelBuilder.Entity("LiteraDO.Domain.Writers.StoryChapter", b =>
                 {
                     b.HasOne("LiteraDO.Domain.Writers.Story", "Story")
-                        .WithMany()
+                        .WithMany("Chapters")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -844,6 +844,11 @@ namespace LiteraDO.DataAccess.Migrations
             modelBuilder.Entity("LiteraDO.Domain.Readers.Book", b =>
                 {
                     b.Navigation("BookAuthors");
+                });
+
+            modelBuilder.Entity("LiteraDO.Domain.Writers.Story", b =>
+                {
+                    b.Navigation("Chapters");
                 });
 #pragma warning restore 612, 618
         }

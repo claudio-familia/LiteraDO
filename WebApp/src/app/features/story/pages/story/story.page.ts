@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { StoryService } from '../../services/story.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'literado-story',
@@ -14,7 +15,7 @@ export class StoryPage implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['cover', 'title', 'literaryGenre', 'language', 'isPublish', 'rating'];
   dataSource = new MatTableDataSource<any>([]);
 
-  constructor(private storyService: StoryService) {}
+  constructor(private storyService: StoryService, private router: Router) {}
 
   ngOnInit(): void {
     this.storyService.get().subscribe(data => {
@@ -36,6 +37,6 @@ export class StoryPage implements OnInit, AfterViewInit {
   }
 
   viewStory(row: any) {
-    console.log(row)
+    this.router.navigateByUrl("story/detail/"+row.id)
   }
 }

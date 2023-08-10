@@ -49,8 +49,13 @@ namespace LiteraDO.BusinessLogic.Dto
         [JsonPropertyName("isPublish")]
         public string IsPublish => PublishedDate.HasValue && PublishedDate.Value > new DateTime(2000, 1, 1) ? "Esta publicada" : "No publicada";
 
+        [JsonPropertyName("state")]
+        public string State => PublishedDate.HasValue && PublishedDate.Value > new DateTime(2000, 1, 1) ? "PUBLICADA" : "BORRADOR";
+
         public UserDto? User { get; set; }
 
         public LiteraryGenreDto? LiteraryGenre { get; set; }
+
+        public ICollection<StoryChapterDto>? Chapters { get; set; }
     }
 }

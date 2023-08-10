@@ -16,6 +16,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
+import { DetailPage } from './pages/detail/detail.page';
+import { ReadingPage } from './pages/reading/reading.page';
+import { CreateChapterPage } from './pages/create-chapter/create-chapter.page';
 
 
 @NgModule({
@@ -24,7 +28,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CreateStoryPage,
     GeneralInformationComponent,
     StoryDetailComponent,
-    StoryReviewComponent
+    StoryReviewComponent,
+    DetailPage,
+    ReadingPage,
+    CreateChapterPage
   ],
   imports: [
     CommonModule,
@@ -37,7 +44,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSelectModule,
     MatSlideToggleModule,
     MatTableModule, 
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule
   ]
 })
 export class StoryModule { }

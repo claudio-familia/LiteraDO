@@ -1,0 +1,13 @@
+.reading__section {
+    .cover {
+        width: 100%;
+        height: 20vh;
+        background-color: #000000ba;
+        display: flex;
+        justify-content: center;
+        img {
+            opacity: 1 !important;
+            height: 100%;
+        }
+    }
+}

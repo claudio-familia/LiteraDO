@@ -11,6 +11,7 @@ export const environment = {
       auth: "authentication",
       country: "countries",
       category: "literaryGenres",
-      story: "stories"
+      story: "stories",
+      storyChapter: "storyChapters"
     }
   };

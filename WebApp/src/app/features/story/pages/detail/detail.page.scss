@@ -1,0 +1,52 @@
+.tag {
+    display: inline-block;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: lightblue;
+    font-weight: bold;
+    div {
+        display: flex;
+        mat-icon {
+            cursor: pointer;
+        }
+    }
+}
+.tag__container {
+    margin-bottom: 10px;
+}
+
+input[type=file] {
+    display: none;
+}
+img {
+    width: 100%;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+    }
+}
+.text-input {
+    margin-bottom: 10px;
+}
+
+.statadistics {
+    margin-bottom: 20px;
+    div {
+        padding: 20px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    div.review {
+        border-right: 1px solid lightblue;
+        border-left: 1px solid lightblue;
+    }
+    span.date {
+        display: block;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    span.value {
+        font-weight: normal;
+    }
+}
