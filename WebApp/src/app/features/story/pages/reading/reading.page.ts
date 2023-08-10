@@ -13,6 +13,8 @@ import { StoryChapterService } from '../../services/story-chapter.service';
 export class ReadingPage {
   countChapters: any;
   chapter: any;
+  nextChapter: any;
+  previousChapter: any;
   constructor(
     private storyService: StoryService, 
     private storyChapterService: StoryChapterService, 
@@ -28,6 +30,8 @@ export class ReadingPage {
   reviews: number = 0;
   state: string = 'Borrador';
   publishedDate: string = 'Jueves 10, Agosto 2023';
+  isFirstChapter: boolean = false;
+  isLastChapter: boolean = false;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param: Params) => {
@@ -38,10 +42,16 @@ export class ReadingPage {
       this.storyService.getById(id).subscribe(res => {
         this.story = res;
         this.countChapters = res.chapters.length
-        console.log(res)
+        const orderedChapters = res.chapters.sort(function(a:any, b:any) { 
+          return a.id - b.id  ||  a.name.localeCompare(b.name);
+        });
+        this.isFirstChapter = orderedChapters[0].id == chapterId;
+        this.isLastChapter = orderedChapters[orderedChapters.length - 1].id == chapterId;
+        const currentChapter = orderedChapters.findIndex((i: any) => i.id == chapterId);
+        this.previousChapter = orderedChapters[currentChapter-1]
+        this.nextChapter = orderedChapters[currentChapter+1]
       })
       this.storyChapterService.getById(chapterId).subscribe(res => {
-        console.log(res)
         this.chapter = res;
       })
     });

@@ -14,7 +14,7 @@ namespace LiteraDO.BusinessLogic.Dto
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
-        public TargetPreference TargetPreference { get; set; }
+        public int TargetPreference { get; set; }
 
         public Country? Country { get; set; }
     }
