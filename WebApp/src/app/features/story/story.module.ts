@@ -20,6 +20,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DetailPage } from './pages/detail/detail.page';
 import { ReadingPage } from './pages/reading/reading.page';
 import { CreateChapterPage } from './pages/create-chapter/create-chapter.page';
+import { StoryReadPagePage } from './pages/story-read-page/story-read-page.page';
+import { StoryQuotePagePage } from './pages/story-quote-page/story-quote-page.page';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { CreateChapterPage } from './pages/create-chapter/create-chapter.page';
     StoryReviewComponent,
     DetailPage,
     ReadingPage,
-    CreateChapterPage
+    CreateChapterPage,
+    StoryReadPagePage,
+    StoryQuotePagePage
   ],
   imports: [
     CommonModule,

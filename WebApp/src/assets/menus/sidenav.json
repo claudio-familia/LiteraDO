@@ -31,22 +31,16 @@
         "role": 0,
         "submenu": [
             {
-                "name": "inprogress",
-                "label": "Leyendo",
-                "role": 0,
-                "route": ""
-            },
-            {
                 "name": "readinglist",
                 "label": "Mis lista de lectura",
                 "role": 0,
-                "route": ""
+                "route": "my-story"
             },
             {
                 "name": "favorite",
                 "label": "Mis citas favoritas",
                 "role": 0,
-                "route": ""
+                "route": "my-quotes"
             }
         ]
     }

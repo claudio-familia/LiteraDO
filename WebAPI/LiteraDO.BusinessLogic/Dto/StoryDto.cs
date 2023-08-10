@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using LiteraDO.Domain.Readers;
+using System.Text.Json.Serialization;
 
 namespace LiteraDO.BusinessLogic.Dto
 {
@@ -57,5 +58,7 @@ namespace LiteraDO.BusinessLogic.Dto
         public LiteraryGenreDto? LiteraryGenre { get; set; }
 
         public ICollection<StoryChapterDto>? Chapters { get; set; }
+
+        public ICollection<StoryUserState>? Iterations { get; set; }
     }
 }
