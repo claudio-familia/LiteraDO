@@ -16,5 +16,11 @@ namespace LiteraDO.Controllers
         public LiteraryGenresController(IBaseService<LiteraryGenre, LiteraryGenreDto> baseService) : base(baseService)
         {
         }
+
+        [AllowAnonymous]
+        public override IActionResult Get()
+        {
+            return base.Get();
+        }
     }
 }

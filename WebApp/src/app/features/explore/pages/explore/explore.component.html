@@ -1,0 +1,31 @@
+<div class="m10">
+  <h1 class="mat-h1">Explora nuestra colección</h1>
+
+  <div class="row">
+    <div class="col-sm-3 m5" *ngFor="let story of stories">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <b>Autor:</b> {{story.user.userName}}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <b>{{story.user.country.name}}</b>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <h2>{{story.title}}</h2>
+            <img mat-card-image [src]="story.cover" [alt]="story.title">
+            <h3>Descripción</h3>
+            <p>
+              {{story.description}}
+            </p>
+            <div class="right-content">
+              <button mat-raised-button type="button" color="primary" routerLink="/explore/{{story.id}}">Ver historia</button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

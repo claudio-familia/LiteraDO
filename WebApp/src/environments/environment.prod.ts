@@ -5,9 +5,13 @@
 export const environment = {
     production: true,
     ApiUrl: 'https://literado-api.azurewebsites.net/api/',
+    authenticateUsers: true,
     urls: {
       users: "users",
       auth: "authentication",
-      country: "countries"
+      country: "countries",
+      category: "literaryGenres",
+      story: "stories",
+      storyChapter: "storyChapters"
     }
   };

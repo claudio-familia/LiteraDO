@@ -80,13 +80,13 @@
           <div class="col">
             <mat-form-field class="full-width">
               <mat-label>Gender</mat-label>
-              <mat-select placeholder="Genero" formControlName="gender">
+              <mat-select placeholder="género" formControlName="gender">
                 <mat-option value="female">Mujer</mat-option>
                 <mat-option value="male">Hombre</mat-option>
                 <mat-option value="other">Otros</mat-option>
               </mat-select>
               <mat-error *ngIf="getControl('gender').hasError('required')">
-                El genero es requerido.
+                El género es requerido.
               </mat-error>
             </mat-form-field>
           </div>

@@ -1,4 +1,5 @@
-﻿using LiteraDO.Domain.Users;
+﻿using LiteraDO.Domain.Readers;
+using LiteraDO.Domain.Users;
 
 namespace LiteraDO.DataAccess.Configuration
 {
@@ -36,6 +37,26 @@ namespace LiteraDO.DataAccess.Configuration
                     FirstName = "William",
                     LastName = "Shakespeare"
                 });
+
+                saveChanges = true;
+            }
+
+            if (!context.LiteraryGenres.Any())
+            {
+                context.AddRange(
+                    new LiteraryGenre() { Id = 1, Name = "Acción", Description = "" },
+                    new LiteraryGenre() { Id = 2, Name = "Aventura", Description = "" },
+                    new LiteraryGenre() { Id = 3, Name = "FanFiction", Description = "" },
+                    new LiteraryGenre() { Id = 4, Name = "Fantasia", Description = "" },
+                    new LiteraryGenre() { Id = 5, Name = "General", Description = "" },
+                    new LiteraryGenre() { Id = 6, Name = "Horror", Description = "" },
+                    new LiteraryGenre() { Id = 7, Name = "Humor", Description = "" },
+                    new LiteraryGenre() { Id = 8, Name = "Misterio", Description = "" },
+                    new LiteraryGenre() { Id = 9, Name = "Paranormal", Description = "" },
+                    new LiteraryGenre() { Id = 10, Name = "Spiritual", Description = "" },
+                    new LiteraryGenre() { Id = 11, Name = "Casos de la vida", Description = "" },
+                    new LiteraryGenre() { Id = 12, Name = "Romance", Description = "" }
+                );
 
                 saveChanges = true;
             }

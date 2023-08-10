@@ -1,0 +1,71 @@
+<form *ngIf="detailForm" [formGroup]="detailForm" novalidate>
+    <mat-card>
+        <mat-card-header class="detail">
+            <div class="title-container full-width">
+                <mat-card-title>
+                    <div class="text-input tag__container">
+                        <label class="label">Tags</label>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <input 
+                                matInput 
+                                #tagInput
+                                placeholder="Tags"
+                                (keydown.enter)="addTag($event.target)"
+                                formControlName="tags" />
+                            <mat-icon matPrefix>bookmark</mat-icon>
+                        </mat-form-field>
+                        <ng-container *ngIf="selectedTags.length > 0">
+                            <div class="tag" *ngFor="let tag of selectedTags.split(',')">
+                                <div>
+                                    {{tag}} <mat-icon (click)="deleteTag(tag)">close</mat-icon>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <label class="label">Audiencia</label>
+                        <mat-form-field class="full-width">
+                            <mat-label>Audiencia</mat-label>
+                            <mat-select placeholder="Audiencia" formControlName="audience">
+                                <mat-option value="13-18">Jovenes adultos (13-18)</mat-option>
+                                <mat-option value="18-25">Nuevos adultos (18-25)</mat-option>
+                                <mat-option value="25+">Adultos (25+)</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <label class="label">Lenguaje</label>
+                        <mat-form-field class="full-width">
+                            <mat-label>Lenguaje</mat-label>
+                            <mat-select placeholder="Lenguaje" formControlName="language">
+                                <mat-option value="spanish">Español</mat-option>
+                                <mat-option value="english">Ingles</mat-option>
+                                <mat-option value="french">Frances</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    <div class="text-input">
+                        <label class="label">Tiene contenido para adultos?</label>
+                        <br />
+                        <mat-slide-toggle color="primary" formControlName="mature">Contiene contenido para adultos?</mat-slide-toggle>
+                        <p>
+                            Tu historia contiene representaciones gráficas de violencia, sexualidad, lenguaje fuerte u otros temas maduros.
+                        </p>
+                    </div>
+                </mat-card-subtitle>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="space-content">
+                <button mat-raised-button type="button" (click)="goBack()" color="primary">Atras</button>
+                <button mat-raised-button type="button" (click)="onSubmit()" color="primary">Siguiente</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
