@@ -6,15 +6,15 @@
 <mat-nav-list>
   <ng-container *ngFor="let item of menu">
     <!-- Menu item with submenu -->
-    <ng-container *ngIf="item.submenu.length > 0">
-      <mat-menu class="main-menu" #random="matMenu" xPosition="before">
+    <ng-container *ngIf="item.submenu.length > 0 && validate(item.role)">
+      <mat-menu class="main-menu" #random="matMenu" xPosition="before" >
         <button *ngFor="let subitem of item.submenu" [routerLink]="subitem.route" mat-menu-item>{{subitem.label}}</button>
       </mat-menu>
-      <a mat-list-item href="#" [routerLink]="item.route" [matMenuTriggerFor]="random">{{item.label}}</a>
+      <a mat-list-item *ngIf="validate(item.role)" href="#" [routerLink]="item.route" [matMenuTriggerFor]="random">{{item.label}}</a>
     </ng-container>  
   <!-- Menu item without submenu -->
   <ng-container *ngIf="item.submenu.length === 0">
-    <a mat-list-item href="#" [routerLink]="item.route">{{item.label}}</a>
+    <a *ngIf="validate(item.role)" mat-list-item href="#" [routerLink]="item.route">{{item.label}}</a>
   </ng-container>  
 </ng-container>
 </mat-nav-list>

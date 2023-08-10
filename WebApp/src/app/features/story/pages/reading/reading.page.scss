@@ -13,10 +13,29 @@
     .reading__controls {
         margin-bottom: 10px;
     }
-    h2 {
+    .chapter__title {
         padding: 0 10px;
+        .title {
+            font-size: 32px !important;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+    }
+    .chapter__name {
+        font-size: 28px !important;
+        font-weight: bold;
     }
     .reading__space {
         padding: 20px 10px;
+        textarea {
+            width: 100%;
+            font-size: 24px !important;
+            height: 100vh;
+            border: none;
+            resize: none;
+            &:focus, &:active {
+                border: none;
+            }
+        }
     }
 }

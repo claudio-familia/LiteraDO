@@ -15,6 +15,9 @@ export class ReadingPage {
   chapter: any;
   nextChapter: any;
   previousChapter: any;
+  orderedChapters: any;
+  currentChapter: any;
+  selection: string = '';
   constructor(
     private storyService: StoryService, 
     private storyChapterService: StoryChapterService, 
@@ -32,28 +35,54 @@ export class ReadingPage {
   publishedDate: string = 'Jueves 10, Agosto 2023';
   isFirstChapter: boolean = false;
   isLastChapter: boolean = false;
+  hasSelection: boolean = false;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param: Params) => {
       const id = param['id']
       const chapterId = param['chapterId']
-      console.log(param)
       this.storyId = id
       this.storyService.getById(id).subscribe(res => {
         this.story = res;
         this.countChapters = res.chapters.length
-        const orderedChapters = res.chapters.sort(function(a:any, b:any) { 
+        this.orderedChapters = res.chapters.sort(function(a:any, b:any) { 
           return a.id - b.id  ||  a.name.localeCompare(b.name);
         });
-        this.isFirstChapter = orderedChapters[0].id == chapterId;
-        this.isLastChapter = orderedChapters[orderedChapters.length - 1].id == chapterId;
-        const currentChapter = orderedChapters.findIndex((i: any) => i.id == chapterId);
-        this.previousChapter = orderedChapters[currentChapter-1]
-        this.nextChapter = orderedChapters[currentChapter+1]
+        this.isFirstChapter = this.orderedChapters[0].id == chapterId;
+        this.isLastChapter = this.orderedChapters[this.orderedChapters.length - 1].id == chapterId;
+        this.currentChapter = this.orderedChapters.findIndex((i: any) => i.id == chapterId);
+        this.previousChapter = this.orderedChapters[this.currentChapter-1]
+        this.nextChapter = this.orderedChapters[this.currentChapter+1]
       })
       this.storyChapterService.getById(chapterId).subscribe(res => {
         this.chapter = res;
       })
+      this.storyService.getReadingInformation(id).subscribe(async (response: any) => {
+        let id = response.id;
+        if(!response) {
+          const response: any = await this.storyService.createReadingInformation(id).toPromise();
+          id = response.id;
+        } else {
+          if(chapterId != response.chapterWhereTheyLeft) {
+            this.router.navigateByUrl(`story/reading/${this.storyId}/chapter/${response.chapterWhereTheyLeft}`)
+          }
+        }
+        await this.storyService.saveReadingInformation(id, chapterId).toPromise()
+      });
+    });
+  }
+
+  getSelection(evt: any): void {
+    const val: string = this.chapter.description.toString();
+    const selection = val.substring(evt.target.selectionStart, evt.target.selectionEnd);
+    this.hasSelection = true;
+    this.selection = selection;
+  }
+
+  saveFavorite(): void {
+    this.alertService.ModalNotification("Existo", "Selección guardada como favorita", "success").then(() => {
+      this.hasSelection = false;
+      this.selection = '';
     });
   }
 

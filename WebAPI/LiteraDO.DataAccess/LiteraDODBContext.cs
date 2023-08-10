@@ -65,7 +65,7 @@ namespace LiteraDO.DataAccess
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
-        public DbSet<BookUserState> BookUserStates { get; set; }
+        public DbSet<StoryUserState> StoryUserState { get; set; }
         public DbSet<LiteraryGenre> LiteraryGenres { get; set; }
         public DbSet<UserFavoriteGenre> UserFavoriteGenres { get; set; }
 

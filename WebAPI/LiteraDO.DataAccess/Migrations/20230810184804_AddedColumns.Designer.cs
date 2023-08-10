@@ -3,6 +3,7 @@ using System;
 using LiteraDO.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LiteraDO.DataAccess.Migrations
 {
     [DbContext(typeof(LiteraDODBContext))]
-    partial class LiteraDODBContextModelSnapshot : ModelSnapshot
+    [Migration("20230810184804_AddedColumns")]
+    partial class AddedColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
