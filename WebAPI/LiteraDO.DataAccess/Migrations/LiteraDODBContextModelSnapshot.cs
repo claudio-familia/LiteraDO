@@ -530,10 +530,6 @@ namespace LiteraDO.DataAccess.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
@@ -542,6 +538,10 @@ namespace LiteraDO.DataAccess.Migrations
 
                     b.Property<int?>("LastModifierUserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Line")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -563,7 +563,7 @@ namespace LiteraDO.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreationTime")
@@ -603,6 +603,100 @@ namespace LiteraDO.DataAccess.Migrations
                     b.HasIndex("StoryId");
 
                     b.ToTable("StoryCharacters");
+                });
+
+            modelBuilder.Entity("LiteraDO.Domain.Writers.StoryReports", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("CreatorUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DeleterUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Evidence")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("LastModifierUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<decimal>("Status")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("StoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoryId");
+
+                    b.ToTable("StoryReports");
+                });
+
+            modelBuilder.Entity("LiteraDO.Domain.Writers.StoryReviews", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("CreatorUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DeleterUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("LastModifierUserId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("StoryChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StoryReviews");
                 });
 
             modelBuilder.Entity("LiteraDO.Domain.Readers.Author", b =>
@@ -717,7 +811,7 @@ namespace LiteraDO.DataAccess.Migrations
             modelBuilder.Entity("LiteraDO.Domain.Writers.StoryChapter", b =>
                 {
                     b.HasOne("LiteraDO.Domain.Writers.Story", "Story")
-                        .WithMany()
+                        .WithMany("Chapters")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -736,9 +830,25 @@ namespace LiteraDO.DataAccess.Migrations
                     b.Navigation("Story");
                 });
 
+            modelBuilder.Entity("LiteraDO.Domain.Writers.StoryReports", b =>
+                {
+                    b.HasOne("LiteraDO.Domain.Writers.Story", "Story")
+                        .WithMany()
+                        .HasForeignKey("StoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Story");
+                });
+
             modelBuilder.Entity("LiteraDO.Domain.Readers.Book", b =>
                 {
                     b.Navigation("BookAuthors");
+                });
+
+            modelBuilder.Entity("LiteraDO.Domain.Writers.Story", b =>
+                {
+                    b.Navigation("Chapters");
                 });
 #pragma warning restore 612, 618
         }

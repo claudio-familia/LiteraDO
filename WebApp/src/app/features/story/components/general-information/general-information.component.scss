@@ -1,0 +1,20 @@
+.general-information {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .title-container {
+        padding-right: 20px;
+    }
+    input[type=file] {
+        display: none;
+    }
+    img {
+        &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    }
+    .text-input {
+        margin-bottom: 10px;
+    }
+}

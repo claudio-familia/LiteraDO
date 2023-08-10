@@ -1,0 +1,20 @@
+input {
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+
+textarea {
+    font-size: 24px !important;
+}
+
+.top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+
+    &.show {
+        display: block;
+    }
+}

@@ -21,5 +21,7 @@ namespace LiteraDO.Domain.Writers
 
         public User User { get; set; }
         public LiteraryGenre LiteraryGenre { get; set; }
+        public ICollection<StoryChapter>? Chapters { get; set; }
+
     }
 }

@@ -1,0 +1,29 @@
+import { Injectable } from '@angular/core';
+import { BaseService } from 'src/app/core/services/base.service';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class StoryService extends BaseService<any> {
+    publishStory(storyId: any) {
+      return this._http.post(`${this._apiUrl}/${storyId}/publish`, {}, {headers: this._headers});
+    }
+
+    getPublished() {
+      return this._http.get(`${this._apiUrl}/published`, {headers: this._headers});
+    }
+
+    updateStory(data: FormData) {
+      return this._http.put(`${this._apiUrl}/update`, data, {headers: this._headers});
+    }
+
+    constructor(private _http: HttpClient) {
+        super(environment.urls.story, _http)
+    }
+
+    createStory(data: FormData) {
+      return this._http.post(`${this._apiUrl}/create`, data, {headers: this._headers});
+    }
+}

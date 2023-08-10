@@ -1,0 +1,92 @@
+<div class="profile_information">
+    <form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
+        <h2 class="title">Información de usuario</h2>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>account_circle</mat-icon>
+              <input matInput readonly placeholder="Usuario" formControlName="username">
+              <mat-error *ngIf="getControl('username').hasError('required')">
+                El usuario es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>info</mat-icon>
+              <input matInput placeholder="Nombres" formControlName="firstName">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>info</mat-icon>
+              <input matInput placeholder="Apellidos" formControlName="lastName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-icon matPrefix>mail</mat-icon>
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="getControl('email').hasError('required')">
+                El correo electronico es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width" (click)="picker.open()">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" readonly formControlName="birthdate">
+                <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Gender</mat-label>
+              <mat-select placeholder="género" formControlName="gender">
+                <mat-option value="female">Mujer</mat-option>
+                <mat-option value="male">Hombre</mat-option>
+                <mat-option value="other">Otros</mat-option>
+              </mat-select>
+              <mat-error *ngIf="getControl('gender').hasError('required')">
+                El género es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Country</mat-label>
+              <mat-select placeholder="País" formControlName="countryId">
+                <mat-option *ngFor="let country of countries" [value]="country.id">{{country.name}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="getControl('countryId').hasError('required')">
+                El país es requerido.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="main-row">
+          <mat-form-field class="full-width">
+            <mat-label>Preferencia princial</mat-label>
+            <mat-select placeholder="Preferencia" formControlName="targetPreference">
+              <mat-option [value]="0">Lector</mat-option>
+              <mat-option [value]="1">Escritor</mat-option>
+              <mat-option [value]="2">Ambos</mat-option>
+            </mat-select>
+            <mat-error *ngIf="getControl('targetPreference').hasError('required')">
+              La preferencia es requerida.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="right-content">
+            <button mat-raised-button color="primary" type="submit">Guardar información</button>
+        </div>
+    </form>
+  </div>
+    

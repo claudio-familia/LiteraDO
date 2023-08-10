@@ -13,8 +13,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { RouterModule } from '@angular/router';
 import { SettingsComponent } from './components/settings/settings.component';
-// import { CardComponent } from './components/card/card.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ProfileInformationComponent } from './components/profile-information/profile-information.component';
 
 
 @NgModule({
@@ -25,7 +32,7 @@ import { SettingsComponent } from './components/settings/settings.component';
     ProfileComponent,
     LoadingComponent,
     SettingsComponent,
-    // CardComponent
+    ProfileInformationComponent
   ],
   imports: [
     CommonModule,
@@ -36,12 +43,19 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
-    MatCardModule
+    RouterModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatDatepickerModule, 
+    MatNativeDateModule
   ],
   exports: [
     NavbarComponent,
     LoadingComponent,
-    // CardComponent
+    ProfileInformationComponent
   ]
 })
 export class CoreModule { }

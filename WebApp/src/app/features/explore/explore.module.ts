@@ -8,12 +8,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ExploreDetailPage } from './pages/explore-detail/explore-detail.page';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
   declarations: [
     ExploreComponent,
-    CardComponent
+    CardComponent,
+    ExploreDetailPage
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule, 
+    MatPaginatorModule
   ]
 })
 export class ExploreModule { }

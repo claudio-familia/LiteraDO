@@ -12,7 +12,7 @@ export class BaseService<T> {
 
   constructor(@Inject(String) baseUrl: string, private http: HttpClient) {
     this._apiUrl = `${environment.ApiUrl}${baseUrl}`;
-    const token = localStorage.getItem('api-token');
+    const token = localStorage.getItem('literado-token');
     this._headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 

@@ -4,11 +4,14 @@
 
 export const environment = {
     production: false,
-    authenticateUsers: false,
+    authenticateUsers: true,
     ApiUrl: 'https://localhost:44327/api/',
     urls: {
       users: "users",
       auth: "authentication",
-      country: "countries"
+      country: "countries",
+      category: "literaryGenres",
+      story: "stories",
+      storyChapter: "storyChapters"
     }
   };

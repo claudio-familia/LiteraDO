@@ -1,0 +1,179 @@
+<div class="right-content m10">
+    <button mat-raised-button type="button" color="secondary" routerLink="/story">Volver a mis historias</button>
+</div>
+<mat-tab-group class="p10">
+    <mat-tab label="Información general">
+        <form *ngIf="storyForm" [formGroup]="storyForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="space-content">
+                <h3>Información sobre la historia</h3>
+                <button mat-raised-button type="button" color="primary" class="mr-5" (click)="publish()">{{state == 'BORRADOR' ? 'Publicar' : 'Volver Borrador'}}</button>
+                <button mat-raised-button type="submit" color="primary" *ngIf="!enableForm()">Guardar</button>
+            </div>
+            <div class="row center-text center-content statadistics">
+                <div class="col-sm-3">
+                    Lecturas: <span class="value">{{reads}}</span>
+                </div>
+                <div class="col-sm-3 review">
+                    Reviews: <span class="value">{{reviews}}</span>
+                </div>
+                <div class="col-sm-3">
+                    Estado: <span class="value">{{state}}</span>
+                    <span *ngIf="state != 'BORRADOR'" class="date">Publicado el {{ publishedDate }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 img-container">
+                    <input 
+                        #inputLoader 
+                        accept="image/*" 
+                        type="file"
+                        (change)="showPreview($event)"
+                        />
+                    <img  
+                        #imgLoader 
+                        mat-card-lg-image 
+                        (click)="openFileExplorer()"
+                        title="Cambiar cover"
+                        src="https://placehold.co/750x600" 
+                        alt="your cover image" />
+                    <p>Click en la imagen para cambiar cover</p>
+                </div>
+                <div class="col-sm-7 general-content">
+                    <div class="title-container full-width">
+                        <div>
+                            <div class="text-input">
+                                <label class="label">Titulo</label>
+                                <mat-form-field appearance="fill" class="full-width">
+                                    <input 
+                                        matInput 
+                                        placeholder="Titulo" 
+                                        formControlName="title" />
+                                    <mat-icon matPrefix>title</mat-icon>
+                                    <mat-error *ngIf="storyForm.get('title')?.hasError('required')">
+                                        El titulo es requerido.
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-input">
+                                <label class="label">Categoria</label>
+                                <mat-form-field class="full-width">
+                                    <mat-label>Categoria</mat-label>
+                                    <mat-select placeholder="Categoria" formControlName="category">
+                                      <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="storyForm.get('category')?.hasError('required')">
+                                        La categoria es requerida.
+                                    </mat-error>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="label">Descripción</label>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Descripción</mat-label>
+                            <textarea 
+                                matInput
+                                placeholder="Descripción" 
+                                formControlName="description"></textarea>
+                            <mat-icon matPrefix>description</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="title-container full-width">
+                        <div>
+                            <div class="text-input tag__container">
+                                <label class="label">Tags</label>
+                                <mat-form-field appearance="fill" class="full-width">
+                                    <input 
+                                        matInput 
+                                        #tagInput
+                                        placeholder="Tags"
+                                        (keydown.enter)="addTag($event.target)"
+                                        formControlName="tags" />
+                                    <mat-icon matPrefix>bookmark</mat-icon>
+                                </mat-form-field>
+                                <ng-container *ngIf="selectedTags.length > 0">
+                                    <div class="tag" *ngFor="let tag of selectedTags.split(',')">
+                                        <div>
+                                            {{tag}} <mat-icon (click)="deleteTag(tag)">close</mat-icon>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-input">
+                                <label class="label">Audiencia</label>
+                                <mat-form-field class="full-width">
+                                    <mat-label>Audiencia</mat-label>
+                                    <mat-select placeholder="Audiencia" formControlName="audience">
+                                        <mat-option value="13-18">Jovenes adultos (13-18)</mat-option>
+                                        <mat-option value="18-25">Nuevos adultos (18-25)</mat-option>
+                                        <mat-option value="25+">Adultos (25+)</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-input">
+                                <label class="label">Lenguaje</label>
+                                <mat-form-field class="full-width">
+                                    <mat-label>Lenguaje</mat-label>
+                                    <mat-select placeholder="Lenguaje" formControlName="language">
+                                        <mat-option value="spanish">Español</mat-option>
+                                        <mat-option value="english">Ingles</mat-option>
+                                        <mat-option value="french">Frances</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-input">
+                                <label class="label">Tiene contenido para adultos?</label>
+                                <br />
+                                <mat-slide-toggle color="primary" formControlName="mature">Contiene contenido para adultos?</mat-slide-toggle>
+                                <p>
+                                    Tu historia contiene representaciones gráficas de violencia, sexualidad, lenguaje fuerte u otros temas maduros.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-tab>
+    <mat-tab label="Capitulos">
+        <div class="chapters m10">
+            <div class="space-content">
+                <h3>Capitulos</h3>
+                <button mat-raised-button type="button" color="primary" routerLink="chapter">Nuevo Capitulo</button>
+            </div>
+            <div>
+                <table mat-table [dataSource]="chapterDataSource">
+        
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Titulo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lines">
+                        <th mat-header-cell *matHeaderCellDef> Lineas </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lines}} </td>
+                    </ng-container>
+
+
+            
+                    <tr mat-header-row *matHeaderRowDef="chapterDisplayedColumns"></tr>
+                    <tr class="pointer" mat-row *matRowDef="let row; columns: chapterDisplayedColumns;" (click)="viewChapter(row)"></tr>
+                </table>
+            
+                <mat-paginator [pageSizeOptions]="[10, 20]"
+                                showFirstLastButtons
+                                aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,4 +1,5 @@
 ﻿using LiteraDO.Common.Models.Enums;
+using LiteraDO.Domain.Users;
 
 namespace LiteraDO.BusinessLogic.Dto
 {
@@ -14,5 +15,7 @@ namespace LiteraDO.BusinessLogic.Dto
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
         public TargetPreference TargetPreference { get; set; }
+
+        public Country? Country { get; set; }
     }
 }

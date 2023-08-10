@@ -73,5 +73,7 @@ namespace LiteraDO.DataAccess
         public DbSet<Story> Stories { get; set; }
         public DbSet<StoryChapter> StoryChapters { get; set; }
         public DbSet<StoryCharacter> StoryCharacters { get; set; }
+        public DbSet<StoryReports> StoryReports { get; set; }
+        public DbSet<StoryReviews> StoryReviews { get; set; }
     }
 }

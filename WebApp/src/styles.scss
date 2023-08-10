@@ -39,6 +39,10 @@ $litera-do-dark-theme: mat.define-dark-theme((
 
 .dark-theme {
   @include mat.all-component-colors($litera-do-dark-theme);
+
+  .stepper {
+    background-color: darkslategray !important;
+  }
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -73,13 +77,60 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 100%;
 }
 
+.right-content {
+  display: flex;
+  justify-content: end;
+}
+
 .center-content {
   display: flex;
   justify-content: center;
 }
 
+.space-content {
+  display: flex;
+  justify-content: space-between;
+}
+
 .center-text {
   text-align: center;
 }
-  
 
+.label {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 4px;
+}
+
+.p5 {
+  padding: 5px;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.m10 {
+  margin: 10px;
+}
+
+.m5 {
+  margin: 5px;
+}
+
+.p12 {
+  padding: 12px;
+}
+
+table {
+  width: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}
