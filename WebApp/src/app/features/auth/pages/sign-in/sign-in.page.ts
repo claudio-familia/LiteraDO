@@ -61,9 +61,13 @@ export class SignInPage implements OnInit {
   onSubmit(): void {
     if (this.userForm.valid) {
       const values = this.userForm.value as SignInModel;
+      const data = {
+        targetPreference: Number(values.TargetPreference),
+        ...values
+      }
       this.authService.signIn(values).subscribe(() => {
         this.alertService.ModalNotification("Correcto", "Usuario creado exitosamente", "success").then(async () => {
-          this.authService.login({username: values.UserName, password: values.Password});
+          window.location.replace("/login");
         });
       });
     }

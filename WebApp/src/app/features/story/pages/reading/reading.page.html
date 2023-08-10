@@ -2,26 +2,36 @@
     <div class="cover">
         <img [src]="story.cover" />
     </div>
-    <h2>{{story.title}}</h2>
-    <div class="row">
-        <div class="col-sm-3">
-            ad
+    <mat-card class="m10">
+        <h2>{{story.title}}</h2>
+        <div class="reading__controls center-content">
+            <div class="col-sm-3">
+                <button *ngIf="!isFirstChapter" mat-raised-button type="button" color="primary" 
+                    routerLink="/story/reading/{{storyId}}/chapter/{{previousChapter.id}}">
+                    <mat-icon>arrow_backward</mat-icon> Capitulo anterior
+                </button>
+            </div>
+            <div class="col-sm-3 center-content">bd</div>
+            <div class="col-sm-3 right-content">
+                <button *ngIf="!isLastChapter" mat-raised-button type="button" color="primary" 
+                    routerLink="/story/reading/{{storyId}}/chapter/{{nextChapter.id}}">
+                    <mat-icon>arrow_forward</mat-icon> Capitulo siguiente
+                </button>
+            </div>
         </div>
-        <div class="col-sm-3">bd</div>
-        <div class="col-sm-3">cd</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            Autor
+        <div class="center-content">
+            <div class="col-sm-3">
+                Autor
+            </div>
+            <div class="col-sm-3 center-content">
+                {{chapter.name}}
+            </div>
+            <div class="col-sm-3 right-content">
+                Actions
+            </div>
         </div>
-        <div class="col-sm-3">
-            {{chapter.name}}
+        <div class="reading__space">
+            {{chapter.description}}
         </div>
-        <div class="col-sm-3">
-            Actions
-        </div>
-    </div>
-    <div class="reading__space">
-        {{chapter.description}}
-    </div>
+    </mat-card>
 </div>

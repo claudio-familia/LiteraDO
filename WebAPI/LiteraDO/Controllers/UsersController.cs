@@ -7,6 +7,7 @@ using LiteraDO.Domain.Users;
 using LiteraDO.BusinessLogic.Services;
 using LiteraDO.Common.Services;
 using LiteraDO.Common.Services.Contracts;
+using LiteraDO.Common.Models.Enums;
 
 namespace LiteraDO.Controllers
 {
