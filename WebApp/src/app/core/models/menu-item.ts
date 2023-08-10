@@ -1,6 +1,7 @@
 export interface MenuItem {
     name:    string;
     label:   string;
+    role?: any;
     submenu: Submenu[];
     route: string;
 }

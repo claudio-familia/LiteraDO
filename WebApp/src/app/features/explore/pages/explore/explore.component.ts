@@ -15,11 +15,7 @@ export class ExploreComponent implements OnInit {
 
   ngOnInit(): void {
     this.storyService.getPublished().subscribe((res: any) => {
-      for(let item of res) {
-        for(let subItem of res) {
-          this.stories.push(subItem);
-        }
-      }
+      this.stories = res;
     });
   }
 

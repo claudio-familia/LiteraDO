@@ -2,21 +2,25 @@
     {
         "name": "#/explore",
         "label": "Explorar",
+        "role": 2,
         "submenu": [],
         "route": "explore"
     },
     {
         "name": "write",
         "label": "Mi taller",
+        "role": 1,
         "submenu": [
             {
                 "name": "write",
                 "label": "Escribir una nueva historia",
+                "role": 1,
                 "route": "story/create"
             },
             {
                 "name": "history",
                 "label": "Mis historias",
+                "role": 1,
                 "route": "story"
             }
         ]
@@ -24,20 +28,24 @@
     {
         "name": "reading",
         "label": "Mis Libros",
+        "role": 0,
         "submenu": [
             {
                 "name": "inprogress",
                 "label": "Leyendo",
+                "role": 0,
                 "route": ""
             },
             {
                 "name": "readinglist",
                 "label": "Mis lista de lectura",
+                "role": 0,
                 "route": ""
             },
             {
                 "name": "favorite",
                 "label": "Mis citas favoritas",
+                "role": 0,
                 "route": ""
             }
         ]
